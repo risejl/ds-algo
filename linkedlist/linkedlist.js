@@ -1,7 +1,7 @@
 // implement linkedlist using ES6 class syntax
 /*
 class Node {
-  constructor(value, next) {
+  constructor(value, next=null) {
     this.value = value;
     this.next = next;
   }
@@ -12,13 +12,13 @@ class MyLinkedList {
     this.head = null;
   }
 
-  createNodeByHead(value, next) {
+  createNodeByHead(value, next=null) {
     let node = new Node(value, next);
     node.next = this.head;
     this.head = node;
   }
 
-  createNodeByTail(value, next) {
+  createNodeByTail(value, next=null) {
     let node = new Node(value, next);
     let p = this.head;
     while (p.next !== null) {
@@ -108,7 +108,7 @@ class MyLinkedList {
 */
 
 // implement linkedlist using vanilla js
-function Node(value, next) {
+function Node(value, next=null) {
   this.value = value;
   this.next = next;
 }
@@ -116,13 +116,13 @@ function Node(value, next) {
 function MyLinkedList(head=null) {
   this.head = null;
 
-  this.createNodeByHead = function(value, next) {
+  this.createNodeByHead = function(value, next=null) {
     let node = new Node(value, next);
     node.next = this.head;
     this.head = node;
   }
 
-  this.createNodeByTail = function(value, next) {
+  this.createNodeByTail = function(value, next=null) {
     let node = new Node(value, next);
     let p = this.head;
     while (p.next !== null) {
@@ -213,8 +213,8 @@ function MyLinkedList(head=null) {
 
 // test code
 let linkedList = new MyLinkedList();
-linkedList.createNodeByHead(1,null);
-linkedList.createNodeByTail(2,null);
+linkedList.createNodeByHead(1);
+linkedList.createNodeByTail(2);
 console.log("after add 1 and 2, the linkedlist:");
 linkedList.print();
 console.log("how many elements are there:");
@@ -230,3 +230,4 @@ console.log(linkedList.search(2));
 console.log("delete the first element:");
 linkedList.deleteNode(1);
 console.log(linkedList);
+linkedList.print();

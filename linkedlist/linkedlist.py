@@ -2,7 +2,7 @@ class Node:
     '''
     implement linkedList node
     '''
-    def __init__(self, value, next):
+    def __init__(self, value, next=None):
         self.value = value
         self.next = next
 
@@ -13,12 +13,12 @@ class MyLinkedList:
     def __init__(self, head = None):
         self.head = None
 
-    def createNodeByHead(self, value, next):
+    def createNodeByHead(self, value, next=None):
         node = Node(value, next)
         node.next = self.head
         self.head = node
 
-    def createNodeByTail(self, value, next):
+    def createNodeByTail(self, value, next=None):
         node = Node(value, next)
         p = self.head
         while p.next != None:
@@ -87,21 +87,21 @@ class MyLinkedList:
                 return
 
 # test code
-linkedList = MyLinkedList();
-linkedList.createNodeByHead(1,None);
-linkedList.createNodeByTail(2,None);
-print("after add 1 and 2, the linkedlist:");
-linkedList.print();
-print("how many elements are there:");
-print(linkedList.count());
-print("total element value:");
-print(linkedList.add());
-print("maximum element:");
-print(linkedList.getMax());
-print("minimum element:");
-print(linkedList.getMin());
-print("the 2 element's index:");
-print(linkedList.search(2));
-print("delete the first element:");
-linkedList.deleteNode(1);
-print(linkedList.head);
+linkedList = MyLinkedList()
+linkedList.createNodeByHead(1)
+linkedList.createNodeByTail(2)
+linkedList.createNodeByTail(3)
+print("after add 1 and 2, the linkedlist:")
+linkedList.print()
+print("how many elements are there:")
+print(linkedList.count())
+print("total element value:")
+print(linkedList.add())
+print("maximum element:")
+print(linkedList.getMax())
+print("minimum element:")
+print(linkedList.getMin())
+print("the 2 element's index:")
+print(linkedList.search(2))
+print("delete the first element:")
+linkedList.deleteNode(1)

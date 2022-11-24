@@ -65,12 +65,12 @@ print(stack.peek(2))
 """
 
 class Node:
-    def __init__(self, value, next):
+    def __init__(self, value, next=None):
         self.value = value
         self.next = next
 
 class MyStack:
-    def __init__(self, head = None):
+    def __init__(self, head=None):
         self.head = None
 
     def isEmpty(self):
@@ -79,7 +79,7 @@ class MyStack:
         else:
             return False
 
-    def push(self, value, next = None):
+    def push(self, value, next=None):
         node = Node(value, next)
         node.next = self.head
         self.head = node
