@@ -1,4 +1,4 @@
-// implement stack using ES6 class syntax
+// implement array-based-stack using ES6 class syntax
 /*
 class MyStack {
   constructor() {
@@ -44,6 +44,7 @@ class MyStack {
 */
 
 // implement stack using vanilla js
+/*
 function MyStack() {
   this.stack = [];
   this.top = -1;
@@ -102,3 +103,141 @@ console.log("push 4 to stack");
 stack.push(4);
 console.log("get the third element:")
 console.log(stack.peek(2));
+*/
+
+// implement linkedList-based stack using ES6 class syntax
+/*
+class Node {
+  constructor(value, next) {
+    this.value = value;
+    this.next = next;
+  }
+}
+
+class MyStack {
+  constructor(head = null) {
+    this.head = null;
+  }
+
+  isEmpty() {
+    if (this.head === null) return true;
+    else return false;
+  }
+
+  push(value, next) {
+    let node = new Node(value, next);
+    node.next = this.head;
+    this.head = node;
+  }
+
+  pop() {
+    if (this.isEmpty()) return false;
+    else {
+      let node = this.head;
+      this.head = this.head.next;
+      return node;
+    }
+  }
+
+  getTop() {
+    if (this.isEmpty()) return false;
+    else return this.head;
+  }
+
+  peek(pos) {
+    let counter = 0;
+    let p = this.head;
+    while (p !== null) {
+      if (counter === pos) return p;
+      else {
+        p = p.next;
+        counter++;
+      }
+    }
+    return false;
+  }
+
+  print() {
+    let p = this.head;
+    while (p !== null) {
+      console.log(p);
+      p = p.next;
+    }
+  }
+} 
+*/
+
+// implement linkedlist-based-stack using vaniila js
+function Node(value, next) {
+  this.value = value;
+  this.next = next;
+}
+
+function MyStack(head = null) {
+  this.head = null;
+
+  this.isEmpty = function() {
+    if (this.head === null) return true;
+    else return false;
+  }
+
+  this.push = function(value, next) {
+    let node = new Node(value, next);
+    node.next = this.head;
+    this.head = node;
+  }
+
+  this.pop = function() {
+    if (this.isEmpty()) return false;
+    else {
+      let node = this.head;
+      this.head = this.head.next;
+      return node;
+    }
+  }
+
+  this.getTop = function() {
+    if (this.isEmpty()) return false;
+    else return this.head;
+  }
+
+  this.peek = function(pos) {
+    let counter = 0;
+    let p = this.head;
+    while (p !== null) {
+      if (counter === pos) return p;
+      else {
+        p = p.next;
+        counter++;
+      }
+    }
+    return false;
+  }
+
+  this.print = function() {
+    let p = this.head;
+    while (p !== null) {
+      console.log(p);
+      p = p.next;
+    }
+  }
+}
+
+// test code
+let stack = new MyStack();
+console.log("stack is empty:");
+console.log(stack.isEmpty());
+console.log("add element 1 and 2:")
+stack.push(1);
+stack.push(2);
+stack.print();
+console.log("get top element from stack:");
+console.log(stack.getTop());
+console.log("add element 3:");
+stack.push(3);
+console.log("get second element:");
+console.log(stack.peek(1));
+console.log("pop element:");
+console.log(stack.pop());
+console.log("stack is empty:");
+console.log(stack.isEmpty());
