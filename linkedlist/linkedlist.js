@@ -1,7 +1,7 @@
 // implement linkedlist using ES6 class syntax
 /*
 class Node {
-  constructor(value, next=null) {
+  constructor(value, next = null) {
     this.value = value;
     this.next = next;
   }
@@ -12,14 +12,14 @@ class MyLinkedList {
     this.head = null;
   }
 
-  createNodeByHead(value, next=null) {
-    let node = new Node(value, next);
+  createNodeByHead(value, next = null) {
+    const node = new Node(value, next);
     node.next = this.head;
     this.head = node;
   }
 
-  createNodeByTail(value, next=null) {
-    let node = new Node(value, next);
+  createNodeByTail(value, next = null) {
+    const node = new Node(value, next);
     let p = this.head;
     while (p.next !== null) {
       p = p.next;
@@ -39,7 +39,7 @@ class MyLinkedList {
     let p = this.head;
     let counter = 0;
     while (p !== null) {
-      counter++;
+      counter += 1;
       p = p.next;
     }
     return counter;
@@ -85,7 +85,7 @@ class MyLinkedList {
     while (p !== null) {
       if (p.value !== value) {
         p = p.next;
-        index++;
+        index += 1;
       } else return index;
     }
   }
@@ -96,7 +96,7 @@ class MyLinkedList {
     while (p !== null) {
       if (counter < index-1) {
         p = p.next;
-        counter++;
+        counter += 1;
       }
       if (counter === index-1) {
         p.next = p.next.next;
@@ -108,22 +108,22 @@ class MyLinkedList {
 */
 
 // implement linkedlist using vanilla js
-function Node(value, next=null) {
+const Node = function (value, next = null) {
   this.value = value;
   this.next = next;
 }
 
-function MyLinkedList(head=null) {
+const MyLinkedList = function (head = null) {
   this.head = null;
 
-  this.createNodeByHead = function(value, next=null) {
-    let node = new Node(value, next);
+  this.createNodeByHead = function (value, next = null) {
+    const node = new Node(value, next);
     node.next = this.head;
     this.head = node;
   }
 
-  this.createNodeByTail = function(value, next=null) {
-    let node = new Node(value, next);
+  this.createNodeByTail = function (value, next = null) {
+    const node = new Node(value, next);
     let p = this.head;
     while (p.next !== null) {
       p = p.next;
@@ -131,7 +131,7 @@ function MyLinkedList(head=null) {
     p.next = node;
   }
 
-  this.print = function() {
+  this.print = function () {
     let p = this.head;
     while (p !== null) {
       console.log(p);
@@ -139,17 +139,17 @@ function MyLinkedList(head=null) {
     }
   }
   
-  this.count = function() {
+  this.count = function () {
     let p = this.head;
     let counter = 0;
     while (p !== null) {
-      counter++;
+      counter += 1;
       p = p.next;
     }
     return counter;
   }
   
-  this.add = function() {
+  this.add = function () {
     let p = this.head;
     let sum = 0;
     while (p !== null) {
@@ -159,7 +159,7 @@ function MyLinkedList(head=null) {
     return sum;
   }
 
-  this.getMax = function() {
+  this.getMax = function () {
     let p = this.head;
     let max = p.value;
     while (p !== null) {
@@ -171,7 +171,7 @@ function MyLinkedList(head=null) {
     return max;
   }
 
-  this.getMin = function() {
+  this.getMin = function () {
     let p = this.head;
     let min = p.value;
     while (p !== null) {
@@ -183,24 +183,24 @@ function MyLinkedList(head=null) {
     return min;
   }
 
-  this.search = function(value) {
+  this.search = function (value) {
     let p = this.head;
     let index = 0;
     while (p !== null) {
       if (p.value !== value) {
         p = p.next;
-        index++;
+        index += 1;
       } else return index;
     }
   }
 
-  this.deleteNode = function(index) {
+  this.deleteNode = function (index) {
     let p = this.head;
     let counter = 0;
     while (p !== null) {
       if (counter < index-1) {
         p = p.next;
-        counter++;
+        counter += 1;
       }
       if (counter === index-1) {
         p.next = p.next.next;
@@ -215,19 +215,19 @@ function MyLinkedList(head=null) {
 let linkedList = new MyLinkedList();
 linkedList.createNodeByHead(1);
 linkedList.createNodeByTail(2);
-console.log("after add 1 and 2, the linkedlist:");
+console.log('after add 1 and 2, the linkedlist:');
 linkedList.print();
-console.log("how many elements are there:");
+console.log('how many elements are there:');
 console.log(linkedList.count());
-console.log("total element value:");
+console.log('total element value:');
 console.log(linkedList.add());
-console.log("maximum element:");
+console.log('maximum element:');
 console.log(linkedList.getMax());
-console.log("minimum element:");
+console.log('minimum element:');
 console.log(linkedList.getMin());
-console.log("the 2 element's index:");
+console.log('the element 2 index:');
 console.log(linkedList.search(2));
-console.log("delete the first element:");
+console.log('delete the first element:');
 linkedList.deleteNode(1);
 console.log(linkedList);
 linkedList.print();

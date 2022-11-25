@@ -3,14 +3,14 @@
 class MyMatrix {
   constructor(row) {
     this.matrix = [];
-    for (let i = 0; i < row; i++) {
+    for (let i = 0; i < row; i += 1) {
       this.matrix.push([]);
     }
   }
   
   add(row, value) {
     if (row > this.matrix.length) {
-      console.log("row number is larger than matrix row length");
+      console.log('row number is larger than matrix row length');
       return false;
     } else {
       this.matrix[row].push(value);
@@ -19,13 +19,13 @@ class MyMatrix {
   
   modify() {
     let maxRowLength = 0;
-    for (let i = 0; i < this.matrix.length; i++) {
+    for (let i = 0; i < this.matrix.length; i += 1) {
       if (maxRowLength < this.matrix[i].length) {
         maxRowLength = this.matrix[i].length;
       }
     }
-    for (let i = 0; i < this.matrix.length; i++) {
-      for (let j = 0; j < maxRowLength - this.matrix[i].length; j++) {
+    for (let i = 0; i < this.matrix.length; i += 1) {
+      for (let j = 0; j < maxRowLength - this.matrix[i].length; j += 1) {
         this.matrix[i].push(0);
       }
     }
@@ -34,7 +34,7 @@ class MyMatrix {
   shape() {
     const row = this.matrix.length;
     const column = this.matrix[0].length;
-    return [row, column];
+    return { row, column };
   }
 
   print() {
@@ -46,37 +46,37 @@ class MyMatrix {
   }
 
   printByRow() {
-    for (let i = 0; i < this.matrix.length; i++) {
-      console.log(`${i} row:"`);
-      for (let j = 0; j < this.matrix[i].length; j++) {
+    for (let i = 0; i < this.matrix.length; i += 1) {
+      console.log(`${i} row:'`);
+      for (let j = 0; j < this.matrix[i].length; j += 1) {
         console.log(this.matrix[i][j]);
       }
     }
   }
 
   printByColumn() {
-    for (let i = 0; i < this.matrix[0].length; i++) {
+    for (let i = 0; i < this.matrix[0].length; i += 1) {
       console.log(`${i} column:`);
-      for (let j = 0; j < this.matrix.length; j++) {
+      for (let j = 0; j < this.matrix.length; j += 1) {
         console.log(this.matrix[j][i]);
       }
     }
   }
 
   transpose() {
-    const [newColNum, newRowNum] = this.shape();
+    const { newColNum, newRowNum } = this.shape();
     let newRow = [];
-    for (let i = 0; i < this.matrix[0].length; i++) {
+    for (let i = 0; i < this.matrix[0].length; i += 1) {
       let eachRow = [];
-      for (let j = 0; j < this.matrix.length; j++) {
+      for (let j = 0; j < this.matrix.length; j += 1) {
         eachRow.push(this.matrix[j][i]);
       }
       newRow.push(eachRow);
     } 
-    for (let i = 0; i < newRow.length; i++) {
+    for (let i = 0; i < newRow.length; i += 1) {
       this.matrix.push(newRow[i]);
     }
-    for (let i = 0; i < newColNum; i++) {
+    for (let i = 0; i < newColNum; i += 1) {
       this.matrix.shift();
     }
   }
@@ -84,42 +84,42 @@ class MyMatrix {
 */
 
 // implement matrix using vanilla js
-function MyMatrix(row) {
+const MyMatrix = function (row) {
   this.matrix = [];
-  for (let i = 0; i < row; i++) {
+  for (let i = 0; i < row; i += 1) {
       this.matrix.push([]);
   }
 
-  this.add = function(row, value) {
+  this.add = function (row, value) {
     if (row > this.matrix.length) {
-      console.log("row number is larger than matrix row length");
+      console.log('row number is larger than matrix row length');
       return false;
     } else {
       this.matrix[row].push(value);
     }
   }
   
-  this.modify = function() {
+  this.modify = function () {
     let maxRowLength = 0;
-    for (let i = 0; i < this.matrix.length; i++) {
+    for (let i = 0; i < this.matrix.length; i += 1) {
       if (maxRowLength < this.matrix[i].length) {
         maxRowLength = this.matrix[i].length;
       }
     }
-    for (let i = 0; i < this.matrix.length; i++) {
-      for (let j = 0; j < maxRowLength - this.matrix[i].length; j++) {
+    for (let i = 0; i < this.matrix.length; i += 1) {
+      for (let j = 0; j < maxRowLength - this.matrix[i].length; j += 1) {
         this.matrix[i].push(0);
       }
     }
   }
 
-  this.shape = function() {
+  this.shape = function () {
     const row = this.matrix.length;
     const column = this.matrix[0].length;
-    return [row, column];
+    return { row, column };
   }
 
-  this.print = function() {
+  this.print = function () {
     this.matrix.map((item) => {
       item.map((element) => {
         console.log(element);
@@ -127,38 +127,38 @@ function MyMatrix(row) {
     });
   }
 
-  this.printByRow = function() {
-    for (let i = 0; i < this.matrix.length; i++) {
-      console.log(`${i} row:"`);
-      for (let j = 0; j < this.matrix[i].length; j++) {
+  this.printByRow = function () {
+    for (let i = 0; i < this.matrix.length; i += 1) {
+      console.log(`${i} row:'`);
+      for (let j = 0; j < this.matrix[i].length; j += 1) {
         console.log(this.matrix[i][j]);
       }
     }
   }
 
-  this.printByColumn = function() {
-    for (let i = 0; i < this.matrix[0].length; i++) {
+  this.printByColumn = function () {
+    for (let i = 0; i < this.matrix[0].length; i += 1) {
       console.log(`${i} column:`);
-      for (let j = 0; j < this.matrix.length; j++) {
+      for (let j = 0; j < this.matrix.length; j += 1) {
         console.log(this.matrix[j][i]);
       }
     }
   }
 
-  this.transpose = function() {
-    const [newColNum, newRowNum] = this.shape();
+  this.transpose = function () {
+    const { newColNum, newRowNum } = this.shape();
     let newRow = [];
-    for (let i = 0; i < this.matrix[0].length; i++) {
+    for (let i = 0; i < this.matrix[0].length; i += 1) {
       let eachRow = [];
-      for (let j = 0; j < this.matrix.length; j++) {
+      for (let j = 0; j < this.matrix.length; j += 1) {
         eachRow.push(this.matrix[j][i]);
       }
       newRow.push(eachRow);
     } 
-    for (let i = 0; i < newRow.length; i++) {
+    for (let i = 0; i < newRow.length; i += 1) {
       this.matrix.push(newRow[i]);
     }
-    for (let i = 0; i < newColNum; i++) {
+    for (let i = 0; i < newColNum; i += 1) {
       this.matrix.shift();
     }
   }
@@ -166,24 +166,24 @@ function MyMatrix(row) {
 
 // test code
 let matrix = new MyMatrix(2);
-console.log("initialize the matrix:");
+console.log('initialize the matrix:');
 console.log(matrix);
-console.log("add some element:");
+console.log('add some element:');
 matrix.add(0,1);
 matrix.add(0,2);
 matrix.add(1,3);
 matrix.add(1,4);
 matrix.add(1,5);
 console.log(matrix);
-console.log("modify to matrix:");
+console.log('modify to matrix:');
 matrix.modify();
 matrix.print();
-console.log("matrix shape:");
+console.log('matrix shape:');
 console.log(matrix.shape());
-console.log("print by row:");
+console.log('print by row:');
 matrix.printByRow();
-console.log("print by column:");
+console.log('print by column:');
 matrix.printByColumn();
-console.log("transpose matrix:");
+console.log('transpose matrix:');
 matrix.transpose();
 console.log(matrix);

@@ -10,7 +10,7 @@ class MyLinkedList:
     '''
     implement linkedList
     '''
-    def __init__(self, head = None):
+    def __init__(self, head=None):
         self.head = None
 
     def createNodeByHead(self, value, next=None):
