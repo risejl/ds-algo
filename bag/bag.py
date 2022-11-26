@@ -65,7 +65,7 @@ class MyBag:
     def __init__(self):
         self.list = []
 
-    def isEmpty(self):
+    def is_empty(self):
         if len(self.list) == 0:
             return True
         else:
@@ -84,9 +84,9 @@ class MyBag:
 
 # test code
 bag = MyBag()
-print(bag.isEmpty())
+print(bag.is_empty())
 bag.add(1)
-print(bag.isEmpty())
+print(bag.is_empty())
 bag.add(2)
 print(bag.size())
 bag.print()

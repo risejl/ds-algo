@@ -34,13 +34,13 @@ class MyMatrix:
             for j in range(len(self.matrix[i])):
                 print(self.matrix[i][j])
     
-    def printByRow(self):
+    def print_by_row(self):
         for i in range(len(self.matrix)):
             print("$i row:")
             for j in range(len(self.matrix[i])):
                 print(self.matrix[i][j])
 
-    def printByColumn(self):
+    def print_by_column(self):
         for i in range(len(self.matrix[0])):
             print("$i column:")
             for j in range(len(self.matrix)):
@@ -77,9 +77,9 @@ matrix.print()
 print("matrix shape:")
 print(matrix.shape())
 print("print by row:")
-matrix.printByRow();
+matrix.print_by_row();
 print("print by column:")
-matrix.printByColumn()
+matrix.print_by_column()
 print("transpose matrix:")
 matrix.transpose();
 print(matrix.matrix)

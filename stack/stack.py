@@ -7,7 +7,7 @@ class MyStack:
         self.stack = list()
         self.top = -1
 
-    def isEmpty(self):
+    def is_empty(self):
         if self.top == -1:
             return True
         else:
@@ -18,27 +18,27 @@ class MyStack:
         self.stack.append(value)
 
     def pop(self):
-        if self.isEmpty():
+        if self.is_empty():
             return False
         else:
             self.top -= 1
             return self.stack.pop()
 
-    def getTop(self):
-        if self.isEmpty():
+    def get_top(self):
+        if self.is_empty():
             return False
         else:
             return self.stack[self.top]
 
     def print(self):
-        if self.isEmpty():
+        if self.is_empty():
             return False
         else:
             for i in range(len(self.stack)):
                 print(self.stack[i])
     
     def peek(self, pos):
-        if self.isEmpty():
+        if self.is_empty():
             return False
         else:
             return self.stack[pos]
@@ -50,11 +50,11 @@ print("push 1 and 2 to stack")
 stack.push(1)
 stack.push(2)
 print("is stack empty?")
-print(stack.isEmpty())
+print(stack.is_empty())
 print("pop 2 out of stack")
 print(stack.pop())
 print("get the top element of stack:")
-print(stack.getTop())
+print(stack.get_top())
 print("push 3 to stack:")
 stack.push(3)
 stack.print()
@@ -73,7 +73,7 @@ class MyStack:
     def __init__(self, head=None):
         self.head = None
 
-    def isEmpty(self):
+    def is_empty(self):
         if self.head == None:
             return True
         else:
@@ -85,15 +85,15 @@ class MyStack:
         self.head = node
 
     def pop(self):
-        if self.isEmpty():
+        if self.is_empty():
             return False
         else:
             node = self.head
             self.head = self.head.next
             return node
 
-    def getTop(self):
-        if self.isEmpty():
+    def get_top(self):
+        if self.is_empty():
             return False
         else:
             return self.head
@@ -110,7 +110,7 @@ class MyStack:
         return False
 
     def print(self):
-        if self.isEmpty():
+        if self.is_empty():
             return False
         p = self.head
         while p != None:
@@ -120,13 +120,13 @@ class MyStack:
 # test code
 stack = MyStack()
 print("stack is empty:")
-print(stack.isEmpty())
+print(stack.is_empty())
 print("add element 1 and 2:")
 stack.push(1)
 stack.push(2)
 stack.print()
 print("get top element from stack:")
-print(stack.getTop())
+print(stack.get_top())
 print("add element 3:")
 stack.push(3)
 print("get second element:")
@@ -134,4 +134,4 @@ print(stack.peek(1))
 print("pop element:")
 print(stack.pop())
 print("stack is empty:")
-print(stack.isEmpty())
+print(stack.is_empty())

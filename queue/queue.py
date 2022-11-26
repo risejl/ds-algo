@@ -8,7 +8,7 @@ class MyQueue:
 		self.front = -1
 		self.rear = -1
 
-	def isEmpty(self):
+	def is_empty(self):
 		if self.rear == self.front:
 			return True
 		else:
@@ -19,26 +19,26 @@ class MyQueue:
 		self.queue.append(value)
 
 	def dequeue(self):
-		if self.isEmpty():
+		if self.is_empty():
 			return False
 		else:
 			self.front += 1
 			return self.queue.pop(0)
 
-	def getRear(self):
-		if self.isEmpty():
+	def get_rear(self):
+		if self.is_empty():
 			return False
 		else:
 			return self.queue[len(self.queue) - 1]
 
-	def getFront(self):
-		if self.isEmpty():
+	def get_front(self):
+		if self.is_empty():
 			return False
 		else:
 			return self.queue[0]
 
 	def print(self):
-		if self.isEmpty():
+		if self.is_empty():
 			return False
 		else:
 			for i in range(len(self.queue)):
@@ -51,13 +51,13 @@ queue.enqueue(1);
 queue.enqueue(2);
 queue.print();
 print("is queue empty?");
-print(queue.isEmpty());
+print(queue.is_empty());
 print("get the rear element of queue:");
-print(queue.getRear());
+print(queue.get_rear());
 print("front element dequeue:");
 print(queue.dequeue());
 print("get the front element:");
-print(queue.getFront());
+print(queue.get_front());
 """
 class Node:
 	def __init__(self, value, next=None):
@@ -73,7 +73,7 @@ class MyQueue:
 		self.rear = None
 
 
-	def isEmpty(self):
+	def is_empty(self):
 		if self.front == None:
 			return True
 		else:
@@ -89,28 +89,28 @@ class MyQueue:
 			self.rear = node
 		
 	def dequeue(self):
-		if self.isEmpty():
+		if self.is_empty():
 			return False
 		else:
 			node = self.front
 			self.front = self.front.next
 			return node
 
-	def getRear(self):
-		if self.isEmpty():
+	def get_rear(self):
+		if self.is_empty():
 			return False
 		else:
 			return self.rear
 
-	def getFront(self):
-		if self.isEmpty():
+	def get_front(self):
+		if self.is_empty():
 			return False
 		else:
 			return self.front
 
 	def print(self):
 		p = self.front
-		if self.isEmpty():
+		if self.is_empty():
 			return False
 		else:
 			while p != None:
@@ -125,10 +125,10 @@ queue.enqueue(1);
 queue.enqueue(2);
 queue.print();
 print("is queue empty?");
-print(queue.isEmpty());
+print(queue.is_empty());
 print("get the rear element of queue:");
-print(queue.getRear().value);
+print(queue.get_rear().value);
 print("front element dequeue:");
 print(queue.dequeue().value);
 print("get the front element:");
-print(queue.getFront().value);
+print(queue.get_front().value);
