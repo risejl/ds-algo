@@ -14,6 +14,23 @@ const bubbleSort = function (arr) {
 */
 
 /**
+ * insertion sort
+const insertionSort = function (arr) {
+	for (let i = 1; i < arr.length; i += 1) {
+		let min = i;
+		const minValue = arr[i];
+		for (let j = i - 1; j >= 0; j -= 1) {
+			if (arr[j] > minValue) {
+				arr[j+1] = arr[j];
+				min = j;
+			}
+		}
+		arr[min] = minValue;
+	}
+}
+*/
+
+/**
  * selection sort
 const selectionSort = function (arr) {
 	for (let i = 0; i < arr.length; i += 1) {
@@ -52,32 +69,29 @@ const countSort = function (arr) {
 */
 
 
-/** 
- * merge
-const merge = function (arr1, arr2) {
-	let mergedArr = [];
-	let i = 0;
-	let j = 0;
-	while (i < arr1.length || j < arr2.length) {
-		if (arr1[i] < arr2[j]) {
-			mergedArr.push(arr1[i]);
-			i += 1;
-		} else {
-			mergedArr.push(arr2[j]);
-			j += 1;
+/**
+ * bucket sort
+const bucketSort = function (arr) {
+	let bucket = [];
+	for (let i = 0; i <= 9; i += 1) {
+		bucket.push([]);
+	}
+	for (let i = 0; i < arr.length; i += 1) {
+		bucket[Math.floor(arr[i] / 10)].push(arr[i]);
+	}
+	for (let i = 0; i < bucket.length; i += 1) {
+		bucket[i].sort((a, b) => a - b);
+	}
+	let sortedArr = [];
+	for (let i = 0; i < bucket.length; i += 1) {
+		if (bucket[i].length > 0) {
+			sortedArr.push(...bucket[i]);
 		}
 	}
-	while (i < arr1.length) {
-		mergedArr.push(arr1[i]);
-		i += 1;
-	}
-	while (j < arr2.length) {
-		mergedArr.push(arr2[j]);
-		j += 1;
-	}
-	return mergedArr;
+	return sortedArr;
 }
 */
+
 
 // test code
 const print = function (arr) {
@@ -92,4 +106,4 @@ array = [33, 65, 21, 14, 11, 0, 5];
 console.log("original array:");
 print(array);
 console.log("sorted array:");
-print(arr);
+print(array);
