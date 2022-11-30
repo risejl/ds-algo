@@ -33,6 +33,18 @@ class MyTree {
     this.postorderTraversal(root.right);
     console.log(root.value);
   }
+
+  levelorderTraversal(root = this.root) {
+    if (root === null) return;
+    let queue = new MyQueue();
+    queue.enqueue(root);
+    while (!queue.isEmpty()) {
+      const node = queue.dequeue();
+      console.log(node.value);
+      if (node.left !== null) queue.enqueue(node.left);
+      if (node.right !== null) queue.enqueue(node.right);
+    }
+  }
 }
 */
 
@@ -67,6 +79,18 @@ const MyTree = function (root = null) {
     this.postorderTraversal(root.right);
     console.log(root.value);
   }
+
+  this.levelorderTraversal = function (root = this.root) {
+    if (root === null) return;
+    let queue = new MyQueue();
+    queue.enqueue(root);
+    while (!queue.isEmpty()) {
+      const node = queue.dequeue();
+      console.log(node.value);
+      if (node.left !== null) queue.enqueue(node.left);
+      if (node.right !== null) queue.enqueue(node.right);
+    }
+  }
 }
 
 
@@ -85,3 +109,5 @@ console.log('inorder traversal:');
 tree.inorderTraversal();
 console.log('postorder traversal:');
 tree.postorderTraversal();
+console.log('levelorder traversal:');
+tree.levelorderTraversal();
