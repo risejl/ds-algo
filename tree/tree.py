@@ -35,6 +35,20 @@ class MyTree:
         self.postorder_traversal(root.right)
         print(root.value)
 
+    def levelorder_traversal(self, root=None):
+        if root == None:
+            return
+        queue = MyQueue()
+        queue.enqueue(root)
+        while not queue.is_empty():
+            node = queue.dequeue()
+            print(node.value)
+            if node.left != None:
+                queue.enqueue(node.left)
+            if node.right != None:
+                queue.enqueue(node.right)
+
+
 # test code
 root = Node(1)
 left_child = Node(2)
@@ -48,3 +62,5 @@ print("inorder traversal:")
 tree.inorder_traversal(root)
 print("postorder traversal:")
 tree.postorder_traversal(root)
+print("levelorder traversal:")
+tree.levelorder_traversal(root)
