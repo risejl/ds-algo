@@ -21,6 +21,9 @@ class MyHeap {
 		this.heap[this.heap.length - 1] = root;
 		const value = this.heap.pop();
 		let index = 0;
+		
+
+
 		return value;
 	}
 

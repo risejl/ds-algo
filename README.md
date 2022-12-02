@@ -11,3 +11,7 @@ implement common data structures and algorithms using javascript and python, inc
 * string
 * search
 * recursion
+* tree
+* heap
+* sort
+* binary search tree
