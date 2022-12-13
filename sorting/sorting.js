@@ -51,14 +51,15 @@ const countSort = function (arr) {
 }
 */
 
-
-/** 
- * merge
+/**
+ * two-way merging
 const merge = function (arr1, arr2) {
 	let mergedArr = [];
+	arr1.sort((a, b) => a - b);
+	arr2.sort((a, b) => a - b);
 	let i = 0;
 	let j = 0;
-	while (i < arr1.length || j < arr2.length) {
+	while (i < arr1.length && j < arr2.length) {
 		if (arr1[i] < arr2[j]) {
 			mergedArr.push(arr1[i]);
 			i += 1;
@@ -79,6 +80,33 @@ const merge = function (arr1, arr2) {
 }
 */
 
+/**
+ * merge within the same array
+*/
+const mergeWithinOne = function (arr, low, mid, high) {
+	let i = low;
+	let j = mid + 1;
+	let mergedArr = [];
+	while ((i <= mid) && (j <= high)) {
+		if (arr[i] < arr[j]) {
+			mergedArr.push(arr[i]);
+			i += 1;
+		} else {
+			mergedArr.push(arr[j]);
+			j += 1;
+		}
+	}
+	while (i <= mid) {
+		mergedArr.push(arr[i]);
+		i += 1;
+	}
+	while (j <= high) {
+		mergedArr.push(arr[j]);
+		j += 1;
+	}
+	return mergedArr;
+}
+
 // test code
 const print = function (arr) {
 	arr.map((item) => {
@@ -86,10 +114,11 @@ const print = function (arr) {
 	});
 }
 
-array = [33, 65, 21, 14, 11, 0, 5];
-//array2 = [1,9,6,4,2,0];
-//console.log(merge(array, array2));
-console.log("original array:");
-print(array);
-console.log("sorted array:");
-print(arr);
+const array = [33, 65, 21, 14, 11, 0, 5];
+//const array2 = [1,9,6,4,2,0];
+const mergedArr = mergeWithinOne(array, 0, Math.floor(0 + (array.length-1-0) / 2), array.length-1);
+console.log(mergedArr);
+//console.log("original array:");
+//print(array);
+//console.log("sorted array:");
+//print(arr);
