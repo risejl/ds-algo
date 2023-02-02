@@ -1,6 +1,7 @@
 // several types of recursion
-// tail recursion
+
 /*
+// tail recursion
 const tail = function (num) {
   if (num < 0) return;
   console.log(num);
@@ -10,8 +11,9 @@ const tail = function (num) {
 tail(5);
 */
 
-// head recursion
+
 /*
+// head recursion
 const head = function (num) {
   if (num < 0) return;
   head(num - 1);
@@ -21,8 +23,9 @@ const head = function (num) {
 head(5);
 */
 
-// tree recursion
+
 /*
+// tree recursion
 const treeR = function (num) {
   if (num < 0) return;
   treeR(num - 1);
@@ -33,8 +36,9 @@ const treeR = function (num) {
 treeR(5);
 */
 
-// indirect recursion
+
 /*
+// indirect recursion
 const indirect_r = function (num) {
   if (num < 0) return;
   console.log(num);

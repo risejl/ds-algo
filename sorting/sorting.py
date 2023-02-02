@@ -14,9 +14,9 @@ def bubble_sort(arr):
 """
 
 """
-def insertion_sort(arr):
+def selection_sort(arr):
 	'''
-	insertion sort
+	selection sort
 	'''
 	for i in range(len(arr)):
 		min = i 
@@ -26,6 +26,21 @@ def insertion_sort(arr):
 		temp = arr[i]
 		arr[i] = arr[min]
 		arr[min] = temp
+"""
+
+"""
+def insertion_sort(arr):
+	'''
+	insertion sort
+	'''
+	for i in range(1, len(arr)):
+		min_index = i
+		min_value = arr[i]
+		for j in range(i - 1, -1, -1):
+			if arr[j] > min_value:
+				arr[j+1] = arr[j]
+				min_index = j
+		arr[min_index] = min_value
 """
 
 """
@@ -49,6 +64,7 @@ def count_sort(arr):
 """
 
 """
+<<<<<<< HEAD
 def merge(arr1, arr2):
 	'''
 	two way merging
@@ -105,12 +121,33 @@ def merge_sort_r(arr, low, high):
 		merge_sort_r(arr, low, mid)
 		merge_sort_r(arr, mid+1, high)
 		print(merge_within_one(arr, low, mid, high))
+=======
+def bucket_sort(arr):
+	'''
+	bucket sort
+	'''
+	bucket = list()
+	for i in range(10):
+		bucket.append(list())
+	for i in arr:
+		bucket[int(i / 10)].append(i)
+	for i in range(len(bucket)):
+		bucket[i].sort()
+	sorted_arr = list()
+	for i in range(len(bucket)):
+		if len(bucket[i]) > 0:
+			sorted_arr.append(bucket[i].copy())
+	return sorted_arr
+"""
+
+>>>>>>> 578641e75db16cca88d1bae575a568bb0f48ad07
 
 def print_array(arr):
 	for i in arr:
 		print(i)
 
 # test code
+<<<<<<< HEAD
 array = [33, 16, 22, 42, 12, 1, 5, 8]
 #array2 = [5,4,8,7,1]
 merged_arr = merge_sort_r(array, 0, len(array)-1)
@@ -119,3 +156,11 @@ print(merged_arr)
 #print_array(array)
 #print("sorted array:")
 #print_array(arr)
+=======
+array = [33, 16, 22, 42, 12, 1, 5]
+print("origin array:")
+print_array(array)
+insertion_sort(array)
+print("sorted array:")
+print_array(array)
+>>>>>>> 578641e75db16cca88d1bae575a568bb0f48ad07

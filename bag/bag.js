@@ -1,30 +1,34 @@
-// implement array-based bag using ES6 class syntax
+// implement array-based bag by ES6 class syntax
 /*
 class MyBag {
   constructor() {
     this.list = [];
   }
 
+  // check whether the bag is empty
   isEmpty() {
     if (this.list.length === 0) return true;
     else return false;
   }
 
+  // return bag size
   size() {
     return this.list.length;
   }
-
+  
+  // add an element to the end
   add(value) {
     this.list.push(value);
   }
 
+  // print all elements
   print() {
     this.list.map((item) => console.log(item)); 
   }
 } 
 */
 
-// implement array-based bag using vanilla js
+// implement array-based bag by vanilla js
 /*
 const MyBag = function () {
   this.list = [];
@@ -45,18 +49,8 @@ const MyBag = function () {
   }
 }
 
-// test code
-let bag = new MyBag();
-console.log(bag.isEmpty());
-bag.add(1);
-console.log(bag.isEmpty());
-console.log(bag.size());
-bag.add(2);
-bag.print();
-*/
-
 /*
-// implement linkedlist-based bag using ES6 class syntax
+// implement linkedlist-based bag by ES6 class syntax
 class Node {
   constructor(value, next = null) {
     this.value = value;
@@ -110,7 +104,7 @@ class MyBag {
 }
 */
 
-// implement linkedlist-based bag using vanilla js
+// implement linkedlist-based bag by vanilla js
 const Node = function (value, next = null) {
   this.value = value;
   this.next = next;
@@ -158,13 +152,3 @@ const MyBag = function (head = null) {
     }
   }
 }
-
-
-// test code
-let bag = new MyBag();
-console.log(bag.isEmpty());
-bag.add(1);
-console.log(bag.isEmpty());
-console.log(bag.size());
-bag.add(2);
-bag.print();

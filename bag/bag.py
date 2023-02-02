@@ -11,12 +11,18 @@ class MyBag:
         self.head = None
 
     def is_empty(self):
+        '''
+        check whether the bag is empty
+        '''
         if self.head == None:
             return True
         else:
             return False
 
     def add(self, value):
+        '''
+        add an element to the end
+        '''
         node = Node(value)
         if self.is_empty():
             self.head = node
@@ -27,6 +33,9 @@ class MyBag:
             p.next = node
 
     def size(self):
+        '''
+        return bag size
+        '''
         if self.is_empty():
             return 0
         else:
@@ -38,6 +47,9 @@ class MyBag:
             return counter
 
     def print(self):
+        '''
+        print all elements
+        '''
         if self.head == None:
             return False
         else:
@@ -45,17 +57,6 @@ class MyBag:
             while p != None:
                 print(p)
                 p = p.next
-
-# test code
-bag = MyBag()
-print(bag.is_empty())
-bag.add(1)
-print(bag.size())
-print(bag.is_empty())
-bag.add(2)
-print(bag.size())
-bag.print()
-
 
 """
 class MyBag:
@@ -81,13 +82,3 @@ class MyBag:
         if len(self.list) != 0:
             for i in self.list:
                 print(i)
-
-# test code
-bag = MyBag()
-print(bag.is_empty())
-bag.add(1)
-print(bag.is_empty())
-bag.add(2)
-print(bag.size())
-bag.print()
-"""

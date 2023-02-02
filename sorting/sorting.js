@@ -14,6 +14,23 @@ const bubbleSort = function (arr) {
 */
 
 /**
+ * insertion sort
+const insertionSort = function (arr) {
+	for (let i = 1; i < arr.length; i += 1) {
+		let min = i;
+		const minValue = arr[i];
+		for (let j = i - 1; j >= 0; j -= 1) {
+			if (arr[j] > minValue) {
+				arr[j+1] = arr[j];
+				min = j;
+			}
+		}
+		arr[min] = minValue;
+	}
+}
+*/
+
+/**
  * selection sort
 const selectionSort = function (arr) {
 	for (let i = 0; i < arr.length; i += 1) {
@@ -51,6 +68,7 @@ const countSort = function (arr) {
 }
 */
 
+<<<<<<< HEAD
 /**
  * two-way merging
 const merge = function (arr1, arr2) {
@@ -67,19 +85,33 @@ const merge = function (arr1, arr2) {
 			mergedArr.push(arr2[j]);
 			j += 1;
 		}
+=======
+
+/**
+ * bucket sort
+const bucketSort = function (arr) {
+	let bucket = [];
+	for (let i = 0; i <= 9; i += 1) {
+		bucket.push([]);
+>>>>>>> 578641e75db16cca88d1bae575a568bb0f48ad07
 	}
-	while (i < arr1.length) {
-		mergedArr.push(arr1[i]);
-		i += 1;
+	for (let i = 0; i < arr.length; i += 1) {
+		bucket[Math.floor(arr[i] / 10)].push(arr[i]);
 	}
-	while (j < arr2.length) {
-		mergedArr.push(arr2[j]);
-		j += 1;
+	for (let i = 0; i < bucket.length; i += 1) {
+		bucket[i].sort((a, b) => a - b);
 	}
-	return mergedArr;
+	let sortedArr = [];
+	for (let i = 0; i < bucket.length; i += 1) {
+		if (bucket[i].length > 0) {
+			sortedArr.push(...bucket[i]);
+		}
+	}
+	return sortedArr;
 }
 */
 
+<<<<<<< HEAD
 /**
  * merge within the same array
 */
@@ -106,6 +138,8 @@ const mergeWithinOne = function (arr, low, mid, high) {
 	}
 	return mergedArr;
 }
+=======
+>>>>>>> 578641e75db16cca88d1bae575a568bb0f48ad07
 
 // test code
 const print = function (arr) {
@@ -114,6 +148,7 @@ const print = function (arr) {
 	});
 }
 
+<<<<<<< HEAD
 const array = [33, 65, 21, 14, 11, 0, 5];
 //const array2 = [1,9,6,4,2,0];
 const mergedArr = mergeWithinOne(array, 0, Math.floor(0 + (array.length-1-0) / 2), array.length-1);
@@ -122,3 +157,12 @@ console.log(mergedArr);
 //print(array);
 //console.log("sorted array:");
 //print(arr);
+=======
+array = [33, 65, 21, 14, 11, 0, 5];
+//array2 = [1,9,6,4,2,0];
+//console.log(merge(array, array2));
+console.log("original array:");
+print(array);
+console.log("sorted array:");
+print(array);
+>>>>>>> 578641e75db16cca88d1bae575a568bb0f48ad07

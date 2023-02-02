@@ -1,7 +1,10 @@
 # several types of recursion
-# tail recursion
+
 """
 def tail(num):
+    '''
+    tail recursion
+    '''
     if num < 0:
         return
     print(num)
@@ -10,9 +13,12 @@ def tail(num):
 tail(5)
 """
 
-# head recursion
+
 """
 def head(num):
+    '''
+    head recursion
+    '''
     if num < 0:
         return 
     head(num - 1)
@@ -21,9 +27,12 @@ def head(num):
 head(5)
 """
 
-# tree recursion
+
 """
 def tree_r(num):
+    '''
+    tree recursion
+    '''
     if num < 0:
         return 
     print(num)
@@ -33,9 +42,12 @@ def tree_r(num):
 tree_r(5)
 """
 
-# indirect recursion
+
 """
 def indirect_r(num):
+    '''
+    indirect recursion
+    '''
     if num < 0:
         return 
     print(num)
@@ -51,8 +63,10 @@ def indirect_r_ano(num):
 indirect_r(4)
 """
 
-# nested recursion 
 def nested_r(num):
+    '''
+    nested recursion 
+    '''
     if num > 100:
         return num - 10
     else:

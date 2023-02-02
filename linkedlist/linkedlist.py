@@ -13,12 +13,34 @@ class MyLinkedList:
     def __init__(self, head=None):
         self.head = None
 
+    def create_list_by_array(self, array):
+        '''
+        create a linkedlist by array elements
+        '''
+        if len(array) == 0:
+            return self.head
+
+        head_node = Node(array[0])
+        self.head = head_node
+        p = self.head
+        for i in range(1, len(array)):
+            node = Node(array[i])
+            p.next = node
+            p = p.next 
+        return self.head
+
     def create_node_by_head(self, value, next=None):
+        '''
+        insert a node to the head of linkedlist
+        '''
         node = Node(value, next)
         node.next = self.head
         self.head = node
 
     def create_node_by_tail(self, value, next=None):
+        '''
+        insert a node to the end of linkedlist
+        '''
         node = Node(value, next)
         p = self.head
         while p.next != None:
@@ -26,12 +48,29 @@ class MyLinkedList:
         p.next = node
 
     def print(self):
+        '''
+        print all nodes
+        '''
         p = self.head
         while p != None:
             print(p)
             p = p.next
 
+    def print_r(self, p=None):
+        if p != None:
+            print(p)
+            self.print_r(p.next)
+
+    def print_r_r(self, p=None):
+        if p != None:
+            self.print_r_r(p.next)
+            print(p)
+
+
     def count(self):
+        '''
+        return the number of nodes
+        '''
         p = self.head
         counter = 0
         while p != None:
@@ -40,6 +79,9 @@ class MyLinkedList:
         return counter
 
     def add(self):
+        '''
+        return the summation of all nodes
+        '''
         p = self.head
         summa = 0
         while p != None:
@@ -48,6 +90,9 @@ class MyLinkedList:
         return summa
 
     def get_max(self):
+        '''
+        return the maximum value of nodes
+        '''
         p = self.head
         maxValue = p.value
         while p != None:
@@ -57,6 +102,9 @@ class MyLinkedList:
         return maxValue
 
     def get_min(self):
+        '''
+        return the minimum value of nodes
+        '''
         p = self.head
         minValue = p.value
         while p != None:
@@ -66,6 +114,9 @@ class MyLinkedList:
         return minValue
 
     def search(self, value):
+        '''
+        check whether a node is in the linkedlist
+        '''
         p = self.head
         index = 0
         while p != None:
@@ -76,6 +127,9 @@ class MyLinkedList:
                 return index
 
     def delete_node(self,index):
+        '''
+        delete a node at a given index
+        '''
         p = self.head
         counter = 0
         while p != None:
@@ -86,22 +140,41 @@ class MyLinkedList:
                 p.next = p.next.next
                 return
 
+    def remove_duplicate(self):
+        '''
+        remove duplicate nodes
+        '''
+        pre = self.head
+        p = pre.next 
+        while p != None:
+            if p.value == pre.value:
+                p = p.next
+                pre.next = p
+            else:
+                p = p.next
+                pre = pre.next
+
+    def is_loop(self):
+        '''
+        is linkedlist have a loop
+        '''
+        if self.head == None:
+            return False
+        if self.head.next == self.head:
+            return True
+        if self.head.next == None:
+            return False
+        fast = self.head
+        slow = self.head 
+        while True:
+            if fast == None or fast.next == None:
+                return False
+            fast = fast.next.next 
+            slow = slow.next
+            if fast == slow:
+                return True
+
 # test code
-linkedList = MyLinkedList()
-linkedList.create_node_by_head(1)
-linkedList.create_node_by_tail(2)
-linkedList.create_node_by_tail(3)
-print("after add 1 and 2, the linkedlist:")
-linkedList.print()
-print("how many elements are there:")
-print(linkedList.count())
-print("total element value:")
-print(linkedList.add())
-print("maximum element:")
-print(linkedList.get_max())
-print("minimum element:")
-print(linkedList.get_min())
-print("the 2 element's index:")
-print(linkedList.search(2))
-print("delete the first element:")
-linkedList.delete_node(1)
+linked_list = MyLinkedList()
+li = [1,2,3,4]
+linked_list.create_list_by_array(li)

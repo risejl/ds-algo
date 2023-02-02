@@ -1,27 +1,18 @@
 """
 def linear_search(li, target):
 	'''
-	implement linear search using python
+	implement linear search by python
 	'''
 	for i in range(len(li)):
 		if li[i] == target:
 			return i
 	return -1
-
-# test code
-arr = [1,2,3,4,5,6]
-target = 3
-anoTar = 10
-print("is 3 in array:")
-print(linear_search(arr, target))
-print("is 10 in array:")
-print(linear_search(arr, anoTar))
 """
 
 """
 def binary_search(li, target):
 	'''
-	implement binary search using python
+	implement binary search by python
 	'''
 	low = 0
 	high = len(li) - 1
@@ -53,12 +44,3 @@ def binary_search_internally(li, low, high, target):
     else:
         return binary_search_internally(li, mid + 1, high, target)
 
-
-# test code
-arr = [1,2,3,4,5,6]
-target = 3
-anoTar = 10
-print("is 3 in array:")
-print(binary_search_r(arr, target))
-print("is 10 in array:")
-print(binary_search_r(arr, anoTar))

@@ -1,5 +1,5 @@
 // implement array-based queue using ES6 class syntax
-/*
+
 class MyQueue {
 	constructor() {
 		this.queue = [];
@@ -42,7 +42,7 @@ class MyQueue {
 		}
 	}
 }
-*/
+
 
 // implement array-based queue using vanilla js
 /*
@@ -166,6 +166,7 @@ class MyQueue {
 
 
 // implement linkedlist-based queue using vanilla js
+/*
 const Node = function (value, next = null) {
 	this.value = value;
 	this.next = next;
@@ -218,8 +219,7 @@ const MyQueue = function () {
 		}
 	}
 }
-
-
+*/
 
 // test code
 let queue = new MyQueue();

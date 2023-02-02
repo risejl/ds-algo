@@ -1,4 +1,4 @@
-// implement matrix using ES6 class syntax
+// implement matrix by ES6 class syntax
 /*
 class MyMatrix {
   constructor(row) {
@@ -8,6 +8,7 @@ class MyMatrix {
     }
   }
   
+  // add an element to a given row
   add(row, value) {
     if (row > this.matrix.length) {
       console.log('row number is larger than matrix row length');
@@ -17,6 +18,7 @@ class MyMatrix {
     }
   }
   
+  // modify to a matrix
   modify() {
     let maxRowLength = 0;
     for (let i = 0; i < this.matrix.length; i += 1) {
@@ -31,12 +33,14 @@ class MyMatrix {
     }
   }
 
+  // matrix's shape
   shape() {
     const row = this.matrix.length;
     const column = this.matrix[0].length;
     return { row, column };
   }
 
+  // print all elements
   print() {
     this.matrix.map((item) => {
       item.map((element) => {
@@ -45,6 +49,7 @@ class MyMatrix {
     });
   }
 
+  // print elements by row
   printByRow() {
     for (let i = 0; i < this.matrix.length; i += 1) {
       console.log(`${i} row:'`);
@@ -54,6 +59,7 @@ class MyMatrix {
     }
   }
 
+  // print elements by column
   printByColumn() {
     for (let i = 0; i < this.matrix[0].length; i += 1) {
       console.log(`${i} column:`);
@@ -63,6 +69,7 @@ class MyMatrix {
     }
   }
 
+  // transpose a matrix
   transpose() {
     const { newColNum, newRowNum } = this.shape();
     let newRow = [];
@@ -83,7 +90,7 @@ class MyMatrix {
 }
 */
 
-// implement matrix using vanilla js
+// implement matrix by vanilla js
 const MyMatrix = function (row) {
   this.matrix = [];
   for (let i = 0; i < row; i += 1) {
@@ -164,26 +171,3 @@ const MyMatrix = function (row) {
   }
 }
 
-// test code
-let matrix = new MyMatrix(2);
-console.log('initialize the matrix:');
-console.log(matrix);
-console.log('add some element:');
-matrix.add(0,1);
-matrix.add(0,2);
-matrix.add(1,3);
-matrix.add(1,4);
-matrix.add(1,5);
-console.log(matrix);
-console.log('modify to matrix:');
-matrix.modify();
-matrix.print();
-console.log('matrix shape:');
-console.log(matrix.shape());
-console.log('print by row:');
-matrix.printByRow();
-console.log('print by column:');
-matrix.printByColumn();
-console.log('transpose matrix:');
-matrix.transpose();
-console.log(matrix);
