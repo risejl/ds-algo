@@ -174,6 +174,41 @@ class MyLinkedList {
         if (fast === slow) return true;
     }
   }
+
+  // reverse a linkedlist
+  reverse() {
+    let q = this.head;
+    let p = q.next;
+    let r = p.next;
+    while (r.next !== null) {
+      if (q === this.head) {
+        q.next = null;
+        p.next = q;
+        q = p;
+        p = r;
+        r = r.next;
+      } else {
+        p.next = q;
+        q = p;
+        p = r;
+        r = r.next;
+      }
+    }
+    r.next = p;
+    p.next = q;
+    this.head = r;
+  }
+
+  // reverse a linkedlist recursively
+  reverseR(p = null, q = null) {
+    if (p !== null) {
+      this.reverseR(p.next, q.next);
+      p.next = q;
+    } else {
+      this.head = q;
+    }
+    q.next = null;
+  }
 }
 */
 
@@ -336,30 +371,33 @@ const MyLinkedList = function (head = null) {
   }
 
   this.reverse = function () {
-    let pre = this.head;
-    let p = pre.next;
-    while (p.next !== null) {
-      const tempP = p.next;
-      const tempPre = pre.next;
-      if (pre === this.head) {
-        p.next = pre;
-        pre.next = null;
-        p = tempP;
-        pre = tempPre;  
+    let q = this.head;
+    let p = q.next;
+    let r = p.next;
+    while (r.next !== null) {
+      if (q === this.head) {
+        q.next = null;
+        p.next = q;
+        q = p;
+        p = r;
+        r = r.next;
       } else {
-        p.next = pre;
+        p.next = q;
+        q = p;
+        p = r;
+        r = r.next;
       }
-      p = tempP;
-      pre = tempPre;
     }
-    p.next = pre;
-    this.head = p;
+    r.next = p;
+    p.next = q;
+    this.head = r;
+  }
+
+  this.reverseR = function (p = null, q = null) {
+    if (p !== null) {
+      this.reverseR(p.next, q.next);
+      p.next = q;
+    } else this.head = q;
+    q.next = null;
   }
 }
-
-
-// test code
-let linkedlist = new MyLinkedList();
-li = [1,2,3,4];
-linkedlist.createListByArray(li);
-linkedlist.printRR();

@@ -44,21 +44,8 @@ class MyQueue:
 			for i in range(len(self.queue)):
 				print(self.queue[i])
 
-# test code
-queue = MyQueue();
-print("element 1 and 2 enqueue:");
-queue.enqueue(1);
-queue.enqueue(2);
-queue.print();
-print("is queue empty?");
-print(queue.is_empty());
-print("get the rear element of queue:");
-print(queue.get_rear());
-print("front element dequeue:");
-print(queue.dequeue());
-print("get the front element:");
-print(queue.get_front());
 """
+
 class Node:
 	def __init__(self, value, next=None):
 		self.value = value
@@ -72,14 +59,19 @@ class MyQueue:
 		self.front = None
 		self.rear = None
 
-
 	def is_empty(self):
+		'''
+		whether a queue is empty
+		'''
 		if self.front == None:
 			return True
 		else:
 			return False
 
 	def enqueue(self, value, next=None):
+		'''
+		an element enter to the rear of queue
+		'''
 		node = Node(value, next)
 		if self.rear == None:
 			self.rear = node
@@ -89,6 +81,9 @@ class MyQueue:
 			self.rear = node
 		
 	def dequeue(self):
+		'''
+		an element remove from the front of queue
+		'''
 		if self.is_empty():
 			return False
 		else:
@@ -97,18 +92,27 @@ class MyQueue:
 			return node
 
 	def get_rear(self):
+		'''
+		get the element from the rear of queue
+		'''
 		if self.is_empty():
 			return False
 		else:
 			return self.rear
 
 	def get_front(self):
+		'''
+		get the element from the front of queue
+		'''
 		if self.is_empty():
 			return False
 		else:
 			return self.front
 
 	def print(self):
+		'''
+		print all elements
+		'''
 		p = self.front
 		if self.is_empty():
 			return False
@@ -116,19 +120,3 @@ class MyQueue:
 			while p != None:
 				print(p)
 				p = p.next
-
-
-# test code
-queue = MyQueue();
-print("element 1 and 2 3 enqueue:");
-queue.enqueue(1);
-queue.enqueue(2);
-queue.print();
-print("is queue empty?");
-print(queue.is_empty());
-print("get the rear element of queue:");
-print(queue.get_rear().value);
-print("front element dequeue:");
-print(queue.dequeue().value);
-print("get the front element:");
-print(queue.get_front().value);

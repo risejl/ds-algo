@@ -1,4 +1,4 @@
-// implement array-based stack using ES6 class syntax
+// implement array-based stack by ES6 class syntax
 /*
 class MyStack {
   constructor() {
@@ -43,7 +43,7 @@ class MyStack {
 } 
 */
 
-// implement array-based stack using vanilla js
+// implement array-based stack by vanilla js
 /*
 const MyStack = function () {
   this.stack = [];
@@ -84,28 +84,9 @@ const MyStack = function () {
     else return this.stack[pos];
   }
 }
-
-// test code
-let stack = new MyStack();
-console.log('push 1 and 2 to stack');
-stack.push(1);
-stack.push(2);
-console.log('is stack empty?');
-console.log(stack.isEmpty());
-console.log('pop 2 out of stack');
-console.log(stack.pop());
-console.log('get the top element of stack:')
-console.log(stack.getTop());
-console.log('push 3 to stack:');
-stack.push(3);
-stack.print();
-console.log('push 4 to stack');
-stack.push(4);
-console.log('get the third element:')
-console.log(stack.peek(2));
 */
 
-// implement linkedList-based stack using ES6 class syntax
+// implement linkedList-based stack by ES6 class syntax
 /*
 class Node {
   constructor(value, next = null) {
@@ -167,7 +148,7 @@ class MyStack {
 } 
 */
 
-// implement linkedlist-based-stack using vaniila js
+// implement linkedlist-based-stack by vaniila js
 const Node = function (value, next = null) {
   this.value = value;
   this.next = next;
@@ -176,17 +157,20 @@ const Node = function (value, next = null) {
 const MyStack = function (head = null) {
   this.head = null;
 
+  // whether a stack is empty
   this.isEmpty = function () {
     if (this.head === null) return true;
     else return false;
   }
 
+  // push an element to the top of a stack
   this.push = function (value, next = null) {
     const node = new Node(value);
     node.next = this.head;
     this.head = node;
   }
 
+  // pop an element from the top of a stack
   this.pop = function () {
     if (this.isEmpty()) return false;
     else {
@@ -196,11 +180,13 @@ const MyStack = function (head = null) {
     }
   }
 
+  // return the element of the top of a stack
   this.getTop = function () {
     if (this.isEmpty()) return false;
     else return this.head;
   }
 
+  // return the element of a given position
   this.peek = function (pos) {
     let counter = 0;
     let p = this.head;
@@ -214,6 +200,7 @@ const MyStack = function (head = null) {
     return false;
   }
 
+  // print all elements
   this.print = function () {
     let p = this.head;
     while (p !== null) {
@@ -222,22 +209,3 @@ const MyStack = function (head = null) {
     }
   }
 }
-
-// test code
-let stack = new MyStack();
-console.log('stack is empty:');
-console.log(stack.isEmpty());
-console.log('add element 1 and 2:')
-stack.push(1);
-stack.push(2);
-stack.print();
-console.log('get top element from stack:');
-console.log(stack.getTop());
-console.log('add element 3:');
-stack.push(3);
-console.log('get second element:');
-console.log(stack.peek(1));
-console.log('pop element:');
-console.log(stack.pop());
-console.log('stack is empty:');
-console.log(stack.isEmpty());

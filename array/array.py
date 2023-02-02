@@ -75,12 +75,27 @@ class MyArray:
         '''
         return self.arr.reverse()
 
-    def shift(self, pos, direction):
+    def shift(self, step, direction):
         '''
-        move array elements together by left or right
+        shift array elements left or right
         '''
         if direction == "left":
-            self.arr[0:pos] = self.arr[pos:len(self.arr)]
+            self.arr[0:len(self.arr)] = self.arr[step:len(self.arr)]
+            for i in range(step):
+                self.arr.append(0)
         if direction == "right":
-            self.arr[pos:len(self.arr)] = self.arr[0:pos]
+            self.arr[0:len(self.arr)] = self.arr[0:len(self.arr)-step]
+            for i in range(step):
+                self.arr.insert(0, 0)
 
+    def rotate(self, step, direction):
+        '''
+        rotate array elements left or right
+        '''
+        if direction == "left":
+            for i in range(step):
+                self.arr.append(self.arr.pop(0))
+
+        if direction == "right":
+            for i in range(step):
+                self.arr.insert(0, self.arr.pop(len(self.arr)-1))

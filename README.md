@@ -4,70 +4,88 @@ Implement **data** **structures** and **algorithms** by *javascript* and *python
 
 ## Bag
 
-* check whether the bag **is empty**
-* return bag **size**
-* **add** an element to the end
-* **print** all elements
+* Check whether the bag **is empty**
+* Return bag **size**
+* **Add** an element to the end
+* **Print** all elements
+* **Print** all elements **recursively**
+* **Print** all elements **recursively** and **reversely**
 
 ## Array 
 
-* **print** all elements
-* **add** an element to the end
-* **insert** an element of a given position
-* **remove** an element of a given position 
-* check whether an element **is in the array**
-* **return** an element of a **given** **position**
-* return the **maximum** element of array
-* return the **minimum** element of array
-* **reverse** all array elements
-* **shift** elements by left or right
+* **Print** all elements
+* **Add** an element to the end
+* **Insert** an element of a given position
+* **Remove** an element of a given position 
+* Check whether an element **is in the array**
+* **Return** an element of a **given** **position**
+* Return the **maximum** element of array
+* Return the **minimum** element of array
+* **Reverse** all array elements
+* **Shift** elements by left or right
+* **Rotate** elements by left or right
 
 ## Linkedlist
 
-* **create** a linkedlist **by** **array** elements
-* **insert** a node to the **head** of linkedlist
-* **insert** a node to the **end** of linkedlist
-* **print** all nodes
-* **print** all nodes **recursively**
-* **print** all nodes **recursively and reversely**
-* return the **number** of nodes
-* return the **summation** of all nodes
-* return the **maximum** value of nodes
-* return the **minimum** value of nodes
-* check whether a node **is in the linkedlist**
-* **delete** a node at a given index
-* **remove** **duplicate** nodes
-* **is** linkedlist have a **loop**
+* **Create** a linkedlist **by** **array** elements
+* **Insert** a node to the **head** of linkedlist
+* **Insert** a node to the **end** of linkedlist
+* **Print** all nodes
+* **Print** all nodes **recursively**
+* **Print** all nodes **recursively and reversely**
+* Return the **number** of nodes
+* Return the **summation** of all nodes
+* Return the **maximum** value of nodes
+* Return the **minimum** value of nodes
+* Check whether a node **is in the linkedlist**
+* **Delete** a node at a given index
+* **Remove** **duplicate** nodes
+* **Is** linkedlist have a **loop**
+* **Reverse** a linkedlist
 
 ## Matrix
 
-* **add** an element to a given row
-* **modify** to a matrix
-* matrix's **shape**
-* **print** **all** elements
-* **print** elements by **row**
-* **print** elements by **column**
-* **transpose** a matrix
-
-## Stack
-
-## Queue
-
-## String
+* **Add** an element to a given row
+* **Modify** to a matrix
+* Matrix's **shape**
+* **Print** **all** elements
+* **Print** elements by **row**
+* **Print** elements by **column**
+* **Transpose** a matrix
 
 ## Search
 
-* **linear search**
-* **binary search**
-* binary search **recursively**
+* **Linear search**
+* **Binary search**
+* Binary search **recursively**
 
 ## Recursion
 
-* **tail** recursion
-* **head** recursion
-* **tree** recursion
-* **indirect** recursion
-* **nested** recursion
+* **Tail** recursion
+* **Head** recursion
+* **Tree** recursion
+* **Indirect** recursion
+* **Nested** recursion
+
+## Stack
+
+* Whether a stack **is empty**
+* **Push** an element to the top of a stack
+* **Pop** an element from the top of a stack
+* Return the element of the **top** of a stack
+* **Peek** the element of a given position
+* **Print** all elements
+
+## Queue
+
+* Whether a queue **is empty**
+* An element **enter** to the rear of queue
+* An element **remove** from the front of queue
+* Get the element from the **rear** of queue
+* Get the element from the **front** of queue
+* Print all elements
+
+## String
 
 ## Tree
 

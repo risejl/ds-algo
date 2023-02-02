@@ -5,7 +5,7 @@ class Node:
 
 class MyBag:
     '''
-    implement linkedlist-based bag using python
+    implement linkedlist-based bag by python
     '''
     def __init__(self, head=None):
         self.head = None
@@ -58,6 +58,24 @@ class MyBag:
                 print(p)
                 p = p.next
 
+    def print_r(self, p=None):
+        '''
+        print all elements recursively
+        '''
+        if p != None:
+            print(p.value)
+            self.print_r(p.next)
+
+    def print_r_r(self, p=None):
+        '''
+        print all elements recursively and reversely
+        '''
+        if p != None:
+            self.print_r_r(p.next)
+            print(p.value)
+
+
+
 """
 class MyBag:
     '''
@@ -82,3 +100,4 @@ class MyBag:
         if len(self.list) != 0:
             for i in self.list:
                 print(i)
+"""

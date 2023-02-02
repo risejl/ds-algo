@@ -66,7 +66,6 @@ class MyLinkedList:
             self.print_r_r(p.next)
             print(p)
 
-
     def count(self):
         '''
         return the number of nodes
@@ -174,7 +173,36 @@ class MyLinkedList:
             if fast == slow:
                 return True
 
-# test code
-linked_list = MyLinkedList()
-li = [1,2,3,4]
-linked_list.create_list_by_array(li)
+    def reverse(self):
+        '''
+        reverse a linkedlist
+        '''
+        q = self.head
+        p = q.next 
+        r = p.next
+        while r.next != None:
+            if q == self.head:
+                q.next = None
+                p.next = q 
+                q = p 
+                p = r  
+                r = r.next 
+            else:
+                p.next = q 
+                q = p 
+                p = r  
+                r = r.next
+        r.next = p 
+        p.next = q  
+        self.head = r
+
+    def reverse_r(self, p=None, q=None):
+        '''
+        reverse a linkedlist recursively
+        '''
+        if p != None:
+            self.reverse_r(p.next, q.next)
+            p.next = q 
+        else:
+            self.head = q 
+        q.next = None

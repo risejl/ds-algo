@@ -7,16 +7,19 @@ class MyQueue {
 		this.rear = -1;
 	}
 
+	// whether a queue is empty
 	isEmpty() {
 		if (this.front === this.rear) return true;
 		else return false;
 	}
 
+	// an element enter to the rear of queue
 	enqueue(value) {
 		this.rear += 1;
 		this.queue.push(value);
 	}
 
+	// an element remove from the front of queue
 	dequeue() {
 		if (this.isEmpty()) return false;
 		else {
@@ -26,16 +29,19 @@ class MyQueue {
 		}
 	}
 
+	// get the element from the rear of queue
 	getRear() {
 		if (this.isEmpty()) return false;
 		else return this.queue[this.rear];
 	}
 	
+	// get the element from the front of queue
 	getFront() {
 		if (this.isEmpty()) return false;
 		else return this.queue[this.front];
 	}
 
+	// print all elements
 	print() {
 		if (!this.isEmpty()) {
 			this.queue.map((item) => console.log(item));
@@ -86,21 +92,6 @@ const MyQueue = function () {
 		}
 	}
 }
-
-// test code
-let queue = new MyQueue();
-console.log('element 1 and 2 enqueue:');
-queue.enqueue(1);
-queue.enqueue(2);
-queue.print();
-console.log('is queue empty?');
-console.log(queue.isEmpty());
-console.log('get the rear element of queue:');
-console.log(queue.getRear());
-console.log('front element dequeue:');
-console.log(queue.dequeue());
-console.log('get the front element:');
-console.log(queue.getFront());
 */
 
 
@@ -221,17 +212,3 @@ const MyQueue = function () {
 }
 */
 
-// test code
-let queue = new MyQueue();
-console.log('element 1 and 2 enqueue:');
-queue.enqueue(1);
-queue.enqueue(2);
-queue.print();
-console.log('is queue empty?');
-console.log(queue.isEmpty());
-console.log('get the rear element of queue:');
-console.log(queue.getRear());
-console.log('front element dequeue:');
-console.log(queue.dequeue());
-console.log('get the front element:');
-console.log(queue.getFront());

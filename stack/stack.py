@@ -1,7 +1,7 @@
 """
 class MyStack:
     '''
-    implement stack using python
+    implement stack by python
     '''
     def __init__(self):
         self.stack = list()
@@ -43,25 +43,6 @@ class MyStack:
         else:
             return self.stack[pos]
 
-
-# test code
-stack = MyStack()
-print("push 1 and 2 to stack")
-stack.push(1)
-stack.push(2)
-print("is stack empty?")
-print(stack.is_empty())
-print("pop 2 out of stack")
-print(stack.pop())
-print("get the top element of stack:")
-print(stack.get_top())
-print("push 3 to stack:")
-stack.push(3)
-stack.print()
-print("push 4 to stack")
-stack.push(4)
-print("get the third element:")
-print(stack.peek(2))
 """
 
 class Node:
@@ -74,17 +55,26 @@ class MyStack:
         self.head = None
 
     def is_empty(self):
+        '''
+        whether a stack is empty
+        '''
         if self.head == None:
             return True
         else:
             return False
 
     def push(self, value, next=None):
+        '''
+        push an element to the top of a stack
+        '''
         node = Node(value, next)
         node.next = self.head
         self.head = node
 
     def pop(self):
+        '''
+        pop an element from the top of a stack
+        '''
         if self.is_empty():
             return False
         else:
@@ -93,12 +83,18 @@ class MyStack:
             return node
 
     def get_top(self):
+        '''
+        return the element of the top of a stack
+        '''
         if self.is_empty():
             return False
         else:
             return self.head
 
     def peek(self, pos):
+        '''
+        return the element of a given position
+        '''
         counter = 0
         p = self.head
         while p != None:
@@ -110,28 +106,12 @@ class MyStack:
         return False
 
     def print(self):
+        '''
+        print all elements
+        '''
         if self.is_empty():
             return False
         p = self.head
         while p != None:
             print(p)
             p = p.next
-
-# test code
-stack = MyStack()
-print("stack is empty:")
-print(stack.is_empty())
-print("add element 1 and 2:")
-stack.push(1)
-stack.push(2)
-stack.print()
-print("get top element from stack:")
-print(stack.get_top())
-print("add element 3:")
-stack.push(3)
-print("get second element:")
-print(stack.peek(1))
-print("pop element:")
-print(stack.pop())
-print("stack is empty:")
-print(stack.is_empty())

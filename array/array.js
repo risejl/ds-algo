@@ -67,18 +67,37 @@ class MyArray {
     return this.list.reverse();
   }
 
-  // mov
-
-  // move array elements together by left or right
-  rotate(pos, direction) {
+  // shift elements to left or right
+  shift(step, direction) {
     if (direction === 'left') {
-      const right = this.list.slice(pos, this.list.length);
-      return this.list.splice(0, pos, right);
+      const right = this.arr.slice(step, this.arr.length);
+      this.arr.splice(0, this.arr.length, ...right);
+      for (let i = 0; i < step; i += 1) {
+        this.arr.push(0);
+      }
     }
-    
+
     if (direction === 'right') {
-      const left = this.list.slice(0, pos);
-      return this.list.splice(pos, this.list.length, left);
+      const left = this.arr.slice(0, this.arr.length - step);
+      this.arr.splice(0, this.arr.length, ...left);
+      for (let i = 0; i < step; i += 1) {
+        this.arr.unshift(0);
+      }
+    }
+  }
+  
+  // rotate elements to left or right
+  rotate(step, direction) {
+    if (direction === 'left') {
+      for (let i = 0; i < step; i += 1) {
+        this.arr.push(this.arr.shift());
+      }
+    } 
+
+    if (direction === 'right') {
+      for (let i = 0; i < step; i += 1) {
+        this.arr.unshift(this.arr.pop());
+      }
     }
   }
 }
@@ -142,40 +161,33 @@ const MyArray = function () {
 
   this.shift = function (step, direction) {
     if (direction === 'left') {
-      const right = this.arr.slice(this.arr.length - step - 1, this.arr.length);
-      this.arr.splice(0, step, right);
+      const right = this.arr.slice(step, this.arr.length);
+      this.arr.splice(0, this.arr.length, ...right);
       for (let i = 0; i < step; i += 1) {
         this.arr.push(0);
       }
     }
 
     if (direction === 'right') {
-      const left = this.arr.slice(0, this.length - step - 1);
-      this.arr.splice(0, this.length, left);
+      const left = this.arr.slice(0, this.arr.length - step);
+      this.arr.splice(0, this.arr.length, ...left);
       for (let i = 0; i < step; i += 1) {
         this.arr.unshift(0);
       }
     }
   }
 
-  this.rotate = function (pos, direction) {
+  this.rotate = function (step, direction) {
     if (direction === 'left') {
-      const right = this.arr.slice(pos, this.arr.length);
-      this.arr.splice(0, pos, right);
+      for (let i = 0; i < step; i += 1) {
+        this.arr.push(this.arr.shift());
+      }
     } 
 
     if (direction === 'right') {
-      const left = this.arr.slice(0, pos);
-      this.arr.splice(pos, this.arr.length, left);
+      for (let i = 0; i < step; i += 1) {
+        this.arr.unshift(this.arr.pop());
+      }
     }
   }
 }
-
-let array = new MyArray();
-array.add(1)
-array.add(2)
-array.add(3)
-array.add(4)
-array.add(5)
-array.shift(2, 'right');
-array.print();
