@@ -145,6 +145,94 @@ class MyTree {
       if (node.right !== null) queue.enqueue(node.right);
     }
   }
+
+  count(root = this.root) {
+    let leftNum = 0;
+    let rightNum = 0;
+    if (root !== null) {
+      leftNum = this.count(root.left);
+      rightNum = this.count(root.right);
+      return leftNum + rightNum + 1;
+    }
+    return 0;
+  }
+
+  sumValue(root = this.root) {
+    let leftSum = 0;
+    let rightSum = 0;
+    if (root !== null) {
+      leftSum += this.sumValue(root.left);
+      rightSum += this.sumValue(root.right);
+      return leftSum + rightSum + root.value;
+    }
+    return 0;
+  }
+
+  height(root = this.root) {
+    let leftHeight = 0;
+    let rightHeight = 0;
+    if (root !== null) {
+      leftHeight = this.height(root.left);
+      rightHeight = this.height(root.right);
+      if (leftHeight > rightHeight) return leftHeight + 1;
+      else return rightHeight + 1;
+    }
+    return 0;
+  }
+
+  leafNum(root = this.root) {
+    let leftLeaf = 0;
+    let rightLeaf = 0;
+    if (root !== null) {      
+      leftLeaf = this.leafNum(root.left);
+      rightLeaf = this.leafNum(root.right);
+      if ((root.left === null) && (root.right === null)) {
+        return leftLeaf + rightLeaf + 1;
+      } else {
+        return leftLeaf + rightLeaf;
+      }
+    }
+    return 0;
+  }
+
+  childrenNum(root = this.root) {
+    let leftChildren = 0;
+    let rightChildren = 0;
+    if (root !== null) {
+      leftChildren = this.childrenNum(root.left);
+      rightChildren = this.childrenNum(root.right);
+      if ((root.left !== null) || (root.right !== null)) {
+        return leftChildren + rightChildren + 1;
+      } else return leftChildren + rightChildren;
+    }
+    return 0;
+  }
+
+  twoChildrenNum(root = this.root) {
+    let leftChildren = 0;
+    let rightChildren = 0;
+    if (root !== null) {
+      leftChildren = this.twoChildrenNum(root.left);
+      rightChildren = this.twoChildrenNum(root.right);
+      if ((root.left !== null) && (root.right !== null)) {
+        return leftChildren + rightChildren + 1;
+      } else return leftChildren + rightChildren;
+    }
+    return 0;
+  }
+
+  oneChildNum(root = this.root) {
+    let leftChild = 0;
+    let rightChild = 0;
+    if (root !== null) {
+      leftChild = this.oneChildNum(root.left);
+      rightChild = this.oneChildNum(root.right);
+      if ((root.left !== null) && (root.right === null) || (root.right !== null) && (root.left === null)) {
+        return leftChild + rightChild + 1;
+      } else return leftChild + rightChild;
+    }
+    return 0;
+  }
 }
 */
 
@@ -333,21 +421,99 @@ const MyTree = function (root = null) {
       if (node.right !== null) queue.enqueue(node.right);
     }
   }
+
+  // return the number of nodes
+  this.count = function (root = this.root) {
+    let leftNum = 0;
+    let rightNum = 0;
+    if (root !== null) {
+      leftNum = this.count(root.left);
+      rightNum = this.count(root.right);
+      return leftNum + rightNum + 1;
+    }
+    return 0;
+  }
+
+  // return the summation of nodes
+  this.sumValue = function (root = this.root) {
+    let leftSum = 0;
+    let rightSum = 0;
+    if (root !== null) {
+      leftSum = this.sumValue(root.left);
+      rightSum = this.sumValue(root.right);
+      return leftSum + rightSum + root.value;
+    }
+    return 0;
+  }
+
+  // return the height of tree
+  this.height = function (root = this.root) {
+    let leftHeight = 0;
+    let rightHeight = 0;
+    if (root !== null) {
+      leftHeight = this.height(root.left);
+      rightHeight = this.height(root.right);
+      if (leftHeight > rightHeight) return leftHeight + 1;
+      else return rightHeight + 1;
+    }
+    return 0;
+  }
+
+  // return the number of leaf nodes
+  this.leafNum = function (root = this.root) {
+    let leftLeaf = 0;
+    let rightLeaf = 0;
+    if (root !== null) {      
+      leftLeaf = this.leafNum(root.left);
+      rightLeaf = this.leafNum(root.right);
+      if ((root.left === null) && (root.right === null)) {
+        return leftLeaf + rightLeaf + 1;
+      } else {
+        return leftLeaf + rightLeaf;
+      }
+    }
+    return 0;
+  }
+
+  // return the number of nodes which have children
+  this.childrenNum = function (root = this.root) {
+    let leftChildren = 0;
+    let rightChildren = 0;
+    if (root !== null) {
+      leftChildren = this.childrenNum(root.left);
+      rightChildren = this.childrenNum(root.right);
+      if ((root.left !== null) || (root.right !== null)) {
+        return leftChildren + rightChildren + 1;
+      } else return leftChildren + rightChildren;
+    }
+    return 0;
+  }
+
+  // return the number of nodes which have two children
+  this.twoChildrenNum = function (root = this.root) {
+    let leftChildren = 0;
+    let rightChildren = 0;
+    if (root !== null) {
+      leftChildren = this.twoChildrenNum(root.left);
+      rightChildren = this.twoChildrenNum(root.right);
+      if ((root.left !== null) && (root.right !== null)) {
+        return leftChildren + rightChildren + 1;
+      } else return leftChildren + rightChildren;
+    }
+    return 0;
+  }
+
+  // return the number of nodes which have one child
+  this.oneChildNum = function (root = this.root) {
+    let leftChild = 0;
+    let rightChild = 0;
+    if (root !== null) {
+      leftChild = this.oneChildNum(root.left);
+      rightChild = this.oneChildNum(root.right);
+      if ((root.left !== null) && (root.right === null) || (root.right !== null) && (root.left === null)) {
+        return leftChild + rightChild + 1;
+      } else return leftChild + rightChild;
+    }
+    return 0;
+  }
 }
-
-
-// test code
-let root = new TreeNode(1);
-let leftChild = new TreeNode(2);
-let rightChild = new TreeNode(3);
-let leftleftChild = new TreeNode(4);
-let leftrightChild = new TreeNode(5);
-let rightleftChild = new TreeNode(6);
-let rightleftrightChild = new TreeNode(7);
-root.left = leftChild;
-root.right = rightChild;
-leftChild.left = leftleftChild;
-leftChild.right = leftrightChild;
-rightChild.left = rightleftChild;
-rightleftChild.right = rightleftrightChild;
-let tree = new MyTree(root);

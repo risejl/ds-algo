@@ -1,5 +1,5 @@
-// using ES6 class syntax 
 /*
+// using ES6 class syntax 
 class Node {
 	constructor(value, left = null, right = null) {
 		this.value = value;
@@ -86,6 +86,7 @@ const Node = function (value, left = null, right = null) {
 const MyBinarySearchTree = function (root = null) {
 	this.root = root;
 
+	// bst sort
 	this.inorderTraversal = function (root = this.root) {
 		if (root === null) return;
 		this.inorderTraversal(root.left);
@@ -93,6 +94,7 @@ const MyBinarySearchTree = function (root = null) {
 		this.inorderTraversal(root.right);
 	}
 
+	// search a node of a give value
 	this.search = function (target, root = this.root) {
 		if (root === null) return;
 		if (root.value === target) console.log(root.value);
@@ -100,6 +102,7 @@ const MyBinarySearchTree = function (root = null) {
 		else this.search(target, root.left);
 	}
 
+	// insert a node to bst
 	this.insert = function (value) {
 		if (this.root === null) {
 			const node = new Node(value);
@@ -115,6 +118,7 @@ const MyBinarySearchTree = function (root = null) {
 		else p.left = node;
 	}
 
+	// delete a node from bst
 	this.delete = function (value) {
 		if (this.root === null) return false;
 		let p = this.root;
@@ -164,9 +168,6 @@ bst.search(1);
 console.log('add node value of 4:');
 bst.insert(4);
 console.log(bst);
-//console.log('delete node of value 4:');
-//console.log(bst.delete(4));
-//console.log(bst);
-console.log('delete node of value 3:');
-console.log(bst.delete(3));
+console.log('delete node of value 2:');
+console.log(bst.delete(2));
 console.log(bst);

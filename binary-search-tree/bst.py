@@ -13,6 +13,9 @@ class MyBinarySearchTree:
 		self.root = root
 
 	def inorder_traversal(self, root):
+		'''
+		bst sort
+		'''
 		if root == None:
 			return
 		self.inorder_traversal(root.left)
@@ -20,6 +23,9 @@ class MyBinarySearchTree:
 		self.inorder_traversal(root.right)
 
 	def search(self, target, root = None):
+		'''
+		search a node of a given value
+		'''
 		if root == None:
 			return
 		if root.value == target:
@@ -30,6 +36,9 @@ class MyBinarySearchTree:
 			self.search(target, root.left)
 
 	def insert(self, value):
+		'''
+		insert a node to bst
+		'''
 		if self.root == None:
 			node = Node(value)
 			self.root = node 
@@ -46,6 +55,9 @@ class MyBinarySearchTree:
 			p.left = node
 
 	def delete(self, value):
+		'''
+		delete a node from bst
+		'''
 		if self.root == None:
 			return False
 		p = self.root 
@@ -96,9 +108,6 @@ bst.search(1, node)
 print("insert node of value 4:")
 bst.insert(4)
 print(right.right.value)
-#print('delete node of value 4:')
-#print(bst.delete(4))
-#print(right.right)
 print('delete node of value 3:')
-print(bst.delete(3))
-print(node.right.value)
+print(bst.delete(2))
+print(right.value)

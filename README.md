@@ -103,9 +103,16 @@ Implement **data** **structures** and **algorithms** by *javascript* and *python
 * **Postorder** traversal
 * **Postorder** traversal **non-recursively**
 * **Levelorder** traversal
+* Return **the number of nodes**
+* Return **the summation of nodes**
+* Return the **height** of tree
+* Return **the number of leaf nodes**
+* Return the number of nodes which **have children**
+* Return the number of nodes which **have two children**
+* Return the number of nodes which **have one child**
 
 ## Heap
 
-## Sort
-
 ## Binary search tree
+
+## Sort

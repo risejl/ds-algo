@@ -47,6 +47,12 @@ class MyQueue:
         else:
             return True
 
+    def get_front(self):
+        if not self.is_empty():
+            return self.queue[0]
+        else:
+            return False
+
 class MyTree:
     """
     implement linkedlist-based tree
@@ -203,19 +209,101 @@ class MyTree:
             if node.right != None:
                 queue.enqueue(node.right)
 
+    def count(self, root=None):
+        '''
+        return the number of nodes
+        '''
+        left_num = 0
+        right_num = 0
+        if root != None:
+            left_num = self.count(root.left)
+            right_num = self.count(root.right)
+            return left_num + right_num + 1
+        return 0
 
-# test code
-root = TreeNode(1)
-left_child = TreeNode(2)
-right_child = TreeNode(3)
-left_left_child = TreeNode(4)
-left_right_child = TreeNode(5)
-right_left_child = TreeNode(6)
-right_left_right_child = TreeNode(7)
-root.left = left_child
-root.right = right_child
-left_child.left = left_left_child
-left_child.right = left_right_child
-right_child.left = right_left_child
-right_left_child.right = right_left_right_child
-tree = MyTree(root)
+    def sum_value(self, root=None):
+        '''
+        return the summation of nodes
+        '''
+        left_sum = 0
+        right_sum = 0
+        if root != None:
+            left_sum = self.sum_value(root.left)
+            right_sum = self.sum_value(root.right)
+            return left_sum + right_sum + root.value
+        return 0
+
+    def height(self, root=None):
+        '''
+        return the height of tree
+        '''
+        left_height = 0
+        right_height = 0
+        if root != None:
+            left_height = self.height(root.left)
+            right_height = self.height(root.right)
+            if left_height > right_height:
+                return left_height + 1
+            else:
+                return right_height + 1
+        return 0
+
+    def leaf_num(self, root=None):
+        '''
+        return the number of leaf nodes
+        '''
+        left_leaf = 0
+        right_leaf = 0
+        if root != None:
+            left_leaf = self.leaf_num(root.left)
+            right_leaf = self.leaf_num(root.right)
+            if root.left == None and root.right == None:
+                return left_leaf + right_leaf + 1
+            else:
+                return left_leaf + right_leaf
+        return 0
+
+    def children_num(self, root=None):
+        '''
+        return the number of nodes which have children
+        '''
+        left_children = 0
+        right_children = 0
+        if root != None:
+            left_children = self.children_num(root.left)
+            right_children = self.children_num(root.right)
+            if root.left != None or root.right != None:
+                return left_children + right_children + 1
+            else:
+                return left_children + right_children
+        return 0
+
+    def two_children_num(self, root=None):
+        '''
+        return the number of nodes which have two children
+        '''
+        left_children = 0
+        right_children = 0
+        if root != None:
+            left_children = self.two_children_num(root.left)
+            right_children = self.two_children_num(root.right)
+            if root.left != None and root.right != None:
+                return left_children + right_children + 1
+            else:
+                return left_children + right_children
+        return 0
+
+    def one_child_num(self, root=None):
+        '''
+        return the number of nodes which have one child
+        '''
+        left_child = 0
+        right_child = 0
+        if root != None:
+            left_child = self.one_child_num(root.left)
+            right_child = self.one_child_num(root.right)
+            if (root.left != None and root.right == None) or (root.left == None and root.right != None):
+                return left_child + right_child + 1
+            else:
+                return left_child + right_child 
+        return 0
