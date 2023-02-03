@@ -53,7 +53,7 @@ Implement **data** **structures** and **algorithms** by *javascript* and *python
 * **Print** elements by **column**
 * **Transpose** a matrix
 
-## Search
+## Searching
 
 * **Linear search**
 * **Binary search**
@@ -79,15 +79,30 @@ Implement **data** **structures** and **algorithms** by *javascript* and *python
 ## Queue
 
 * Whether a queue **is empty**
-* An element **enter** to the rear of queue
-* An element **remove** from the front of queue
+* An element **enter** to the rear of **queue**
+* An element **delete** from the front of **queue**
 * Get the element from the **rear** of queue
 * Get the element from the **front** of queue
-* Print all elements
+* **Print** all elements
 
 ## String
 
+* **Is** string **empty**
+* **Add** a character to a string
+* **Print** string
+* Convert string to **lower** case
+* Convert string to **upper** case
+* Whether a **character** **in** a **string**
+
 ## Tree
+
+* **Preorder** traversal
+* **Preorder** traversal **non-recursively**
+* **Inorder** traversal
+* **Inorder** traversal **non-recursively**
+* **Postorder** traversal
+* **Postorder** traversal **non-recursively**
+* **Levelorder** traversal
 
 ## Heap
 

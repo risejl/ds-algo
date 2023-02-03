@@ -183,15 +183,11 @@ class MyLinkedList:
         while r.next != None:
             if q == self.head:
                 q.next = None
-                p.next = q 
-                q = p 
-                p = r  
-                r = r.next 
-            else:
-                p.next = q 
-                q = p 
-                p = r  
-                r = r.next
+            p.next = q 
+            q = p 
+            p = r  
+            r = r.next 
+            
         r.next = p 
         p.next = q  
         self.head = r

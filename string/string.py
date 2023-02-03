@@ -6,31 +6,49 @@ class MyString:
 		self.string = ""
 
 	def is_empty(self):
+		'''
+		is string empty
+		'''
 		if self.string == "":
 			return True
 		else:
 			return False
 
 	def add(self, ch):
+		'''
+		add a character to a string
+		'''
 		self.string += ch
 		return self.string
 
 	def print(self):
+		'''
+		print string
+		'''
 		print(self.string)
 
 	def lower(self):
+		'''
+		convert string to lower case
+		'''
 		if self.is_empty():
 			return False
 		else:
 			return self.string.lower()
 
 	def upper(self):
+		'''
+		convert string to upper case
+		'''
 		if self.is_empty():
 			return False
 		else:
 			return self.string.upper()
 
 	def has_ch(self, ch):
+		'''
+		whether a character in a string
+		'''
 		if self.is_empty():
 			return False
 		else:
@@ -38,18 +56,3 @@ class MyString:
 				if self.string[i] == ch:
 					return i
 			return -1
-
-# test code
-string = MyString()
-string.add('a')
-string.add('b')
-print("add character a and b to empty string:")
-string.print()
-print("is string empty?")
-print(string.is_empty())
-print("convert all character to uppercase:")
-print(string.upper())
-print("convert all character to lowercase:")
-print(string.lower())
-print("is a in string?")
-print(string.has_ch('a'))

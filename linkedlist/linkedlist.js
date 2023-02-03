@@ -181,18 +181,11 @@ class MyLinkedList {
     let p = q.next;
     let r = p.next;
     while (r.next !== null) {
-      if (q === this.head) {
-        q.next = null;
-        p.next = q;
-        q = p;
-        p = r;
-        r = r.next;
-      } else {
-        p.next = q;
-        q = p;
-        p = r;
-        r = r.next;
-      }
+      if (q === this.head) q.next = null;
+      p.next = q;
+      q = p;
+      p = r;
+      r = r.next;
     }
     r.next = p;
     p.next = q;
@@ -375,18 +368,11 @@ const MyLinkedList = function (head = null) {
     let p = q.next;
     let r = p.next;
     while (r.next !== null) {
-      if (q === this.head) {
-        q.next = null;
-        p.next = q;
-        q = p;
-        p = r;
-        r = r.next;
-      } else {
-        p.next = q;
-        q = p;
-        p = r;
-        r = r.next;
-      }
+      if (q === this.head) q.next = null;
+      p.next = q;
+      q = p;
+      p = r;
+      r = r.next;
     }
     r.next = p;
     p.next = q;
