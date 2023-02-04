@@ -6,14 +6,30 @@ class MyHeap:
 		self.heap = list()
 
 	def insert(self, value):
+		'''
+		insert a node to a heap
+		'''
 		self.heap.append(value)
 		index = len(self.heap) - 1
-		while self.heap[index] > self.heap[int(index / 2)]:
+		parent_index = 0
+		if index % 2 == 0:
+			parent_index = (index - 1) / 2
+		else:
+			parent_index = index / 2
+		while self.heap[index] > self.heap[int(parent_index)]:
 			temp = self.heap[index]
-			self.heap[index] = self.heap[int(index / 2)]
-			self.heap[int(index / 2)] = temp
+			self.heap[index] = self.heap[int(parent_index)]
+			self.heap[int(parent_index)] = temp
+			index = int(parent_index)
+			if index % 2 == 0:
+				parent_index = (index - 1) / 2
+			else:
+				parent_index = index / 2
 
 	def delete_root(self):
+		'''
+		delete root node from a heap
+		'''
 		root = self.heap[0]
 		self.heap[0] = self.heap[len(self.heap) - 1]
 		self.heap[len(self.heap) - 1] = root 
@@ -44,10 +60,16 @@ class MyHeap:
 		return value
 
 	def build(self, arr):
+		'''
+		build a heap
+		'''
 		for i in range(len(arr)):
 			self.insert(arr[i])
 
 	def sort(self):
+		'''
+		heap sort
+		'''
 		sorted_arr = list()
 		for i in range(len(self.heap)):
 			sorted_arr.append(self.delete_root())
@@ -55,8 +77,8 @@ class MyHeap:
 
 # test code
 heap = MyHeap()
-array = [1, 2, 3, 4]
-print('build heap based on 1, 2, 3 and 4:')
+array = [0,10,20,30,25,5,40,35]
+print('build heap:')
 heap.build(array)
 print(heap.heap)
 print(heap.sort())

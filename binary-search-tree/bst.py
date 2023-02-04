@@ -27,30 +27,51 @@ class MyBinarySearchTree:
 		search a node of a given value
 		'''
 		if root == None:
+			print(False)
 			return
 		if root.value == target:
-			print(root.value)
+			print(True)
 		elif root.value < target:
 			self.search(target, root.right)
 		else:
 			self.search(target, root.left)
 
+	def search_n_r(self, target, root = None):
+		'''
+		non-recursive version of search
+		'''
+		while root != None:
+			if target == root.value:
+				return True
+			elif target > root.value:
+				root = root.right
+			else:
+				root = root.left
+		return False
+
 	def insert(self, value):
 		'''
 		insert a node to bst
 		'''
-		if self.root == None:
-			node = Node(value)
-			self.root = node 
-		p = self.root 
-		while p.left != None or p.right != None:
-			if p.value <= value:
-				p = p.right
-			else:
-				p = p.left
 		node = Node(value)
+		if self.root == None:
+			self.root = node 
+			return
+
+		p = self.root
+		while p.left != None or p.right != None:
+			if p.left == None and value < p.value:
+				p.left = node 
+				break
+			elif p.right == None and value >= p.value:
+				p.right = node 
+				break 
+			elif value >= p.value:
+				p = p.right
+			elif value < p.value:
+				p = p.left
 		if value >= p.value:
-			p.right = node
+			p.right = node 
 		else:
 			p.left = node
 
@@ -93,21 +114,8 @@ class MyBinarySearchTree:
 			return True
 
 # test code
-node = Node(2)
-left = Node(1)
-right = Node(3)
-node.left = left
-node.right = right
-bst = MyBinarySearchTree(node)
-print('binary search tree looks like:')
-print(bst)
-print('binary search tree inorder traversal, which is also a sort array:')
-bst.inorder_traversal(node)
-print('search node of value 1:')
-bst.search(1, node)
-print("insert node of value 4:")
+bst = MyBinarySearchTree()
+bst.insert(2)
+bst.insert(1)
+bst.insert(3)
 bst.insert(4)
-print(right.right.value)
-print('delete node of value 3:')
-print(bst.delete(2))
-print(right.value)

@@ -21,23 +21,48 @@ class MyBinarySearchTree {
 	}
 
 	search(target, root = this.root) {
-		if (root === null) return;
-		if (root.value === target) console.log(root.value);
+		if (root === null) {
+			console.log(false);
+			return;
+		}
+		if (root.value === target) console.log(true);
 		else if (root.value < target) this.search(target, root.right);
 		else this.search(target, root.left);
 	}
 
+	searchNR(target, root = this.root) {
+		while (root !== null) {
+			if (target === root.value) {
+				console.log(true);
+				return;
+			} else if (target > root.value) {
+				root = root.right;
+			} else {
+				root = root.left;
+			}
+		}
+		console.log(false);
+		return;
+	}
+
 	insert(value) {
-		if (this.root == null) {
-			const node = new Node(value);
-			this.root = node;
-		}
-		let p = this.root;
-		while (p.left !== null || p.right !== null) {
-			if (p.value <= value) p = p.right;
-			else p = p.left;
-		}
 		const node = new Node(value);
+		if (this.root === null) {
+			this.root = node;
+			return;
+		}
+
+		p = this.root;
+		while ((p.left !== null ) || (p.right !== null)) {
+			if ((p.left === null) && (value < p.value)) {
+				p.left = node;
+				break;
+			} else if ((p.right === null) && (value >= p.value)) {
+				p.right = node;
+				break;
+			} else if (value >= p.value) p = p.right;
+			  else if (value < p.value) p = p.left;
+		}
 		if (value >= p.value) p.right = node;
 		else p.left = node;
 	}
@@ -96,24 +121,50 @@ const MyBinarySearchTree = function (root = null) {
 
 	// search a node of a give value
 	this.search = function (target, root = this.root) {
-		if (root === null) return;
-		if (root.value === target) console.log(root.value);
+		if (root === null) {
+			console.log(false);
+			return;
+		}
+		if (root.value === target) console.log(true);
 		else if (root.value < target) this.search(target, root.right);
 		else this.search(target, root.left);
 	}
 
+	// non-recursive version of search
+	this.searchNR = function (target, root = this.root) {
+		while (root !== null) {
+			if (target === root.value) {
+				console.log(true);
+				return;
+			} else if (target > root.value) {
+				root = root.right;
+			} else {
+				root = root.left;
+			}
+		}
+		console.log(false);
+		return;
+	}
+
 	// insert a node to bst
 	this.insert = function (value) {
-		if (this.root === null) {
-			const node = new Node(value);
-			this.root = node;
-		}
-		let p = this.root;
-		while (p.left !== null || p.right !== null) {
-			if (p.value <= value) p = p.right;
-			else p = p.left;
-		}
 		const node = new Node(value);
+		if (this.root === null) {
+			this.root = node;
+			return;
+		}
+
+		p = this.root;
+		while ((p.left !== null ) || (p.right !== null)) {
+			if ((p.left === null) && (value < p.value)) {
+				p.left = node;
+				break;
+			} else if ((p.right === null) && (value >= p.value)) {
+				p.right = node;
+				break;
+			} else if (value >= p.value) p = p.right;
+			  else if (value < p.value) p = p.left;
+		}
 		if (value >= p.value) p.right = node;
 		else p.left = node;
 	}
@@ -121,6 +172,7 @@ const MyBinarySearchTree = function (root = null) {
 	// delete a node from bst
 	this.delete = function (value) {
 		if (this.root === null) return false;
+
 		let p = this.root;
 		let prev = this.root;
 		while (p !== null) {
@@ -148,26 +200,33 @@ const MyBinarySearchTree = function (root = null) {
 			}
 			return true;
 		}
+		if (p.left !== null && p.right !== null) {
+			let inorderSuccessor = p.right;
+			let iSP = p.right;
+			let t = p.right;
+			while (t !== null) {
+				if (t.left !== null) {
+					iSP = inorderSuccessor;
+					t = t.left;
+					inorderSuccessor = t;
+				} else (t.left === null) break;
+			}
+			if (inorderSuccessor.left === null && inorderSuccessor.right === null) {
+				p.value = inorderSuccessor.value;
+				iSP.left = null;
+			} else if (inorderSuccessor.right !== null) {
+
+			}
+		}
 	}
 }
 
 
 // test code
-let node = new Node(2);
-let left = new Node(1);
-let right = new Node(3);
-node.left = left;
-node.right = right;
-let bst = new MyBinarySearchTree(node);
-console.log('binary search tree looks like:');
-console.log(bst);
-console.log('binary search tree inorder traversal, which is also a sort array:');
-bst.inorderTraversal();
-console.log('search node of value 1:');
-bst.search(1);
-console.log('add node value of 4:');
+let bst = new MyBinarySearchTree();
+bst.insert(2);
+bst.insert(1);
+bst.insert(3);
 bst.insert(4);
-console.log(bst);
-console.log('delete node of value 2:');
-console.log(bst.delete(2));
+console.log('binary search tree looks like:');
 console.log(bst);

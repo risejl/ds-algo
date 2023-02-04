@@ -111,8 +111,20 @@ Implement **data** **structures** and **algorithms** by *javascript* and *python
 * Return the number of nodes which **have two children**
 * Return the number of nodes which **have one child**
 
+## Binary search tree
+
+* Binary search tree **sort**
+* **Search** a node of a given value
+* **Non-recursive** version of **search** 
+* **Insert** a node to binary search tree 
+
 ## Heap
 
-## Binary search tree
+* **Create** a heap
+* **Insert** a node to a heap
+* **Delete** root node from a heap
+* Heap **sort**
+
+## Graph
 
 ## Sort
