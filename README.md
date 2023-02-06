@@ -125,6 +125,20 @@ Implement **data** **structures** and **algorithms** by *javascript* and *python
 * **Delete** root node from a heap
 * Heap **sort**
 
+## Hash Table
+
+* **Hash**
+* **Double** hashing
+* **Chaining insert**
+* Chaining **search**
+* Chaining **delete**
+* **Linear** probing insert
+* Linear **probing** search
+* Linear probing **delete**
+* **Quadratic** probing insert
+* Quadratic **probing** search
+* Quadratic probing **delete**
+
 ## Graph
 
 ## Sort
