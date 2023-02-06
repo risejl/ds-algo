@@ -1,5 +1,4 @@
 // implement matrix by ES6 class syntax
-/*
 class MyMatrix {
   constructor(row) {
     this.matrix = [];
@@ -71,88 +70,6 @@ class MyMatrix {
 
   // transpose a matrix
   transpose() {
-    const { newColNum, newRowNum } = this.shape();
-    let newRow = [];
-    for (let i = 0; i < this.matrix[0].length; i += 1) {
-      let eachRow = [];
-      for (let j = 0; j < this.matrix.length; j += 1) {
-        eachRow.push(this.matrix[j][i]);
-      }
-      newRow.push(eachRow);
-    } 
-    for (let i = 0; i < newRow.length; i += 1) {
-      this.matrix.push(newRow[i]);
-    }
-    for (let i = 0; i < newColNum; i += 1) {
-      this.matrix.shift();
-    }
-  }
-}
-*/
-
-// implement matrix by vanilla js
-const MyMatrix = function (row) {
-  this.matrix = [];
-  for (let i = 0; i < row; i += 1) {
-      this.matrix.push([]);
-  }
-
-  this.add = function (row, value) {
-    if (row > this.matrix.length) {
-      console.log('row number is larger than matrix row length');
-      return false;
-    } else {
-      this.matrix[row].push(value);
-    }
-  }
-  
-  this.modify = function () {
-    let maxRowLength = 0;
-    for (let i = 0; i < this.matrix.length; i += 1) {
-      if (maxRowLength < this.matrix[i].length) {
-        maxRowLength = this.matrix[i].length;
-      }
-    }
-    for (let i = 0; i < this.matrix.length; i += 1) {
-      for (let j = 0; j < maxRowLength - this.matrix[i].length; j += 1) {
-        this.matrix[i].push(0);
-      }
-    }
-  }
-
-  this.shape = function () {
-    const row = this.matrix.length;
-    const column = this.matrix[0].length;
-    return { row, column };
-  }
-
-  this.print = function () {
-    this.matrix.map((item) => {
-      item.map((element) => {
-        console.log(element);
-      });
-    });
-  }
-
-  this.printByRow = function () {
-    for (let i = 0; i < this.matrix.length; i += 1) {
-      console.log(`${i} row:'`);
-      for (let j = 0; j < this.matrix[i].length; j += 1) {
-        console.log(this.matrix[i][j]);
-      }
-    }
-  }
-
-  this.printByColumn = function () {
-    for (let i = 0; i < this.matrix[0].length; i += 1) {
-      console.log(`${i} column:`);
-      for (let j = 0; j < this.matrix.length; j += 1) {
-        console.log(this.matrix[j][i]);
-      }
-    }
-  }
-
-  this.transpose = function () {
     const { newColNum, newRowNum } = this.shape();
     let newRow = [];
     for (let i = 0; i < this.matrix[0].length; i += 1) {

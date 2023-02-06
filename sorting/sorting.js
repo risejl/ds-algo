@@ -68,7 +68,6 @@ const countSort = function (arr) {
 }
 */
 
-<<<<<<< HEAD
 /**
  * two-way merging
 const merge = function (arr1, arr2) {
@@ -85,7 +84,7 @@ const merge = function (arr1, arr2) {
 			mergedArr.push(arr2[j]);
 			j += 1;
 		}
-=======
+
 
 /**
  * bucket sort
@@ -93,8 +92,6 @@ const bucketSort = function (arr) {
 	let bucket = [];
 	for (let i = 0; i <= 9; i += 1) {
 		bucket.push([]);
->>>>>>> 578641e75db16cca88d1bae575a568bb0f48ad07
-	}
 	for (let i = 0; i < arr.length; i += 1) {
 		bucket[Math.floor(arr[i] / 10)].push(arr[i]);
 	}
@@ -111,7 +108,6 @@ const bucketSort = function (arr) {
 }
 */
 
-<<<<<<< HEAD
 /**
  * merge within the same array
 */
@@ -138,8 +134,6 @@ const mergeWithinOne = function (arr, low, mid, high) {
 	}
 	return mergedArr;
 }
-=======
->>>>>>> 578641e75db16cca88d1bae575a568bb0f48ad07
 
 // test code
 const print = function (arr) {
@@ -148,7 +142,6 @@ const print = function (arr) {
 	});
 }
 
-<<<<<<< HEAD
 const array = [33, 65, 21, 14, 11, 0, 5];
 //const array2 = [1,9,6,4,2,0];
 const mergedArr = mergeWithinOne(array, 0, Math.floor(0 + (array.length-1-0) / 2), array.length-1);
@@ -157,7 +150,6 @@ console.log(mergedArr);
 //print(array);
 //console.log("sorted array:");
 //print(arr);
-=======
 array = [33, 65, 21, 14, 11, 0, 5];
 //array2 = [1,9,6,4,2,0];
 //console.log(merge(array, array2));
@@ -165,4 +157,3 @@ console.log("original array:");
 print(array);
 console.log("sorted array:");
 print(array);
->>>>>>> 578641e75db16cca88d1bae575a568bb0f48ad07

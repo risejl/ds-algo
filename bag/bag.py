@@ -76,7 +76,6 @@ class MyBag:
 
 
 
-"""
 class MyBag:
     '''
     implement array-based bag using python
@@ -100,4 +99,3 @@ class MyBag:
         if len(self.list) != 0:
             for i in self.list:
                 print(i)
-"""

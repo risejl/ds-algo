@@ -74,11 +74,3 @@ class MyHeap:
 		for i in range(len(self.heap)):
 			sorted_arr.append(self.delete_root())
 		return sorted_arr
-
-# test code
-heap = MyHeap()
-array = [0,10,20,30,25,5,40,35]
-print('build heap:')
-heap.build(array)
-print(heap.heap)
-print(heap.sort())

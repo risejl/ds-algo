@@ -112,10 +112,3 @@ class MyBinarySearchTree:
 				elif prev.right == p:
 					prev.right = p.right
 			return True
-
-# test code
-bst = MyBinarySearchTree()
-bst.insert(2)
-bst.insert(1)
-bst.insert(3)
-bst.insert(4)

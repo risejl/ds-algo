@@ -64,7 +64,6 @@ def count_sort(arr):
 """
 
 """
-<<<<<<< HEAD
 def merge(arr1, arr2):
 	'''
 	two way merging
@@ -121,7 +120,7 @@ def merge_sort_r(arr, low, high):
 		merge_sort_r(arr, low, mid)
 		merge_sort_r(arr, mid+1, high)
 		print(merge_within_one(arr, low, mid, high))
-=======
+
 def bucket_sort(arr):
 	'''
 	bucket sort
@@ -140,14 +139,12 @@ def bucket_sort(arr):
 	return sorted_arr
 """
 
->>>>>>> 578641e75db16cca88d1bae575a568bb0f48ad07
 
 def print_array(arr):
 	for i in arr:
 		print(i)
 
 # test code
-<<<<<<< HEAD
 array = [33, 16, 22, 42, 12, 1, 5, 8]
 #array2 = [5,4,8,7,1]
 merged_arr = merge_sort_r(array, 0, len(array)-1)
@@ -156,11 +153,9 @@ print(merged_arr)
 #print_array(array)
 #print("sorted array:")
 #print_array(arr)
-=======
 array = [33, 16, 22, 42, 12, 1, 5]
 print("origin array:")
 print_array(array)
 insertion_sort(array)
 print("sorted array:")
 print_array(array)
->>>>>>> 578641e75db16cca88d1bae575a568bb0f48ad07
