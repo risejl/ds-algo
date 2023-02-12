@@ -9,15 +9,15 @@ class MyHeap {
 		this.heap.push(value);
 		let index = this.heap.length - 1;
 		let parentIndex = 0;
-		if (index % 2 === 0) parentIndex = (index - 1) / 2;
-		else parentIndex = index / 2;
+		if (index % 2 === 0) parentIndex = Math.floor((index - 1) / 2);
+		else parentIndex = Math.floor(index / 2);
 		while (this.heap[index] > this.heap[Math.floor(parentIndex)]) {
 			let temp = this.heap[index];
 			this.heap[index] = this.heap[Math.floor(parentIndex)];
 			this.heap[Math.floor(parentIndex)] = temp;
 			index = Math.floor(parentIndex);
-			if (index % 2 === 0) parentIndex = (index - 1) / 2;
-			else parentIndex = index / 2;
+			if (index % 2 === 0) parentIndex = Math.floor((index - 1) / 2);
+			else parentIndex = Math.floor(index / 2);
 		}
 	}
 
