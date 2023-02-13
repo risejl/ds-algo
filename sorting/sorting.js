@@ -1,5 +1,4 @@
-/**
- * bubble sort
+//bubble sort
 const bubbleSort = function (arr) {
 	for (let i = 0; i < arr.length; i += 1) {
 		for (let j = i; j < arr.length; j += 1) {
@@ -11,10 +10,8 @@ const bubbleSort = function (arr) {
 		}
 	}
 }
-*/
 
-/**
- * insertion sort
+//insertion sort
 const insertionSort = function (arr) {
 	for (let i = 1; i < arr.length; i += 1) {
 		let min = i;
@@ -28,10 +25,8 @@ const insertionSort = function (arr) {
 		arr[min] = minValue;
 	}
 }
-*/
 
-/**
- * selection sort
+//selection sort
 const selectionSort = function (arr) {
 	for (let i = 0; i < arr.length; i += 1) {
 		let min = i;
@@ -43,10 +38,8 @@ const selectionSort = function (arr) {
 		arr[min] = temp;
 	}
 }
-*/
 
-/**
- * count sort
+//count sort
 const countSort = function (arr) {
 	const max = Math.max(...arr);
 	let bucket = new Array(max + 1);
@@ -66,32 +59,14 @@ const countSort = function (arr) {
 	}
 	return sortedArr;
 }
-*/
-
-/**
- * two-way merging
-const merge = function (arr1, arr2) {
-	let mergedArr = [];
-	arr1.sort((a, b) => a - b);
-	arr2.sort((a, b) => a - b);
-	let i = 0;
-	let j = 0;
-	while (i < arr1.length && j < arr2.length) {
-		if (arr1[i] < arr2[j]) {
-			mergedArr.push(arr1[i]);
-			i += 1;
-		} else {
-			mergedArr.push(arr2[j]);
-			j += 1;
-		}
 
 
-/**
- * bucket sort
+//bucket sort
 const bucketSort = function (arr) {
 	let bucket = [];
 	for (let i = 0; i <= 9; i += 1) {
 		bucket.push([]);
+	}
 	for (let i = 0; i < arr.length; i += 1) {
 		bucket[Math.floor(arr[i] / 10)].push(arr[i]);
 	}
@@ -106,11 +81,27 @@ const bucketSort = function (arr) {
 	}
 	return sortedArr;
 }
-*/
 
-/**
- * merge within the same array
-*/
+// two way merge
+const merge = function (arr1, arr2) {
+	let mergedArr = [];
+	arr1.sort((a, b) => a - b);
+	arr2.sort((a, b) => a - b);
+	let i = 0;
+	let j = 0;
+	while (i < arr1.length && j < arr2.length) {
+		if (arr1[i] < arr2[j]) {
+			mergedArr.push(arr1[i]);
+			i += 1;
+		} else {
+			mergedArr.push(arr2[j]);
+			j += 1;
+		}
+	}
+	return mergedArr;
+}
+
+//merge within the same array
 const mergeWithinOne = function (arr, low, mid, high) {
 	let i = low;
 	let j = mid + 1;
@@ -136,24 +127,4 @@ const mergeWithinOne = function (arr, low, mid, high) {
 }
 
 // test code
-const print = function (arr) {
-	arr.map((item) => {
-		console.log(item);
-	});
-}
-
 const array = [33, 65, 21, 14, 11, 0, 5];
-//const array2 = [1,9,6,4,2,0];
-const mergedArr = mergeWithinOne(array, 0, Math.floor(0 + (array.length-1-0) / 2), array.length-1);
-console.log(mergedArr);
-//console.log("original array:");
-//print(array);
-//console.log("sorted array:");
-//print(arr);
-array = [33, 65, 21, 14, 11, 0, 5];
-//array2 = [1,9,6,4,2,0];
-//console.log(merge(array, array2));
-console.log("original array:");
-print(array);
-console.log("sorted array:");
-print(array);
