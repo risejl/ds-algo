@@ -1,3 +1,4 @@
+/*
 //bubble sort
 const bubbleSort = function (arr) {
 	for (let i = 0; i < arr.length; i += 1) {
@@ -85,8 +86,6 @@ const bucketSort = function (arr) {
 // two way merge
 const merge = function (arr1, arr2) {
 	let mergedArr = [];
-	arr1.sort((a, b) => a - b);
-	arr2.sort((a, b) => a - b);
 	let i = 0;
 	let j = 0;
 	while (i < arr1.length && j < arr2.length) {
@@ -98,33 +97,87 @@ const merge = function (arr1, arr2) {
 			j += 1;
 		}
 	}
-	return mergedArr;
-}
-
-//merge within the same array
-const mergeWithinOne = function (arr, low, mid, high) {
-	let i = low;
-	let j = mid + 1;
-	let mergedArr = [];
-	while ((i <= mid) && (j <= high)) {
-		if (arr[i] < arr[j]) {
-			mergedArr.push(arr[i]);
-			i += 1;
-		} else {
-			mergedArr.push(arr[j]);
-			j += 1;
-		}
-	}
-	while (i <= mid) {
-		mergedArr.push(arr[i]);
+	while (i < arr1.length) {
+		mergedArr.push(arr1[i]);
 		i += 1;
 	}
-	while (j <= high) {
-		mergedArr.push(arr[j]);
+	while (j < arr2.length) {
+		mergedArr.push(arr2[j]);
 		j += 1;
 	}
 	return mergedArr;
 }
 
-// test code
-const array = [33, 65, 21, 14, 11, 0, 5];
+// merging within one array
+const mergeWithinOne = function (arr, low, mid, high) {
+	let i = low;
+	let j = mid+1;
+	let mergeArr = [];
+	while (i <= mid && j <= high) {
+		if (arr[i] < arr[j]) {
+			mergeArr.push(arr[i]);
+			i += 1;
+		} else {
+			mergeArr.push(arr[j]);
+			j += 1;
+		}
+	}
+	while (i <= mid) {
+		mergeArr.push(arr[i]);
+		i += 1;
+	}
+	while (j <= high) {
+		mergeArr.push(arr[j]);
+		j += 1;
+	}
+	for (let k = 0; k < mergeArr.length; k += 1) {
+		arr[k+low] = mergeArr[k];
+	}
+} 
+
+// merge sort recursive version
+const mergeSortR = function (arr, low, high) {
+ 	if (low < high) {
+ 		let mid = Math.floor((high+low)/2);
+ 		mergeSortR(arr, low, mid);
+ 		mergeSortR(arr, mid+1, high);
+ 		mergeWithinOne(arr, low, mid, high);
+ 	}
+}
+
+// sorting the pivot to the right position
+const partition = function (arr, low, high) {
+	let i = low;
+	let j = high;
+	let pivot = i;
+	while (i <= j) {
+		while (arr[i] < arr[pivot]) i += 1;
+		while (arr[j] > arr[pivot]) j -= 1;
+		if (i <= j) {
+			let temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
+			i += 1;
+			j -= 1;
+		}
+	}
+	let temp = arr[pivot];
+	arr[pivot] = arr[j];
+	arr[j] = temp;
+	return j;
+}
+
+// quick sort
+const quickSort = function (arr, low, high) {
+	if (low < high) {
+		let pivot = partition(arr, low, high);
+		quickSort(arr, low, pivot-1);
+		quickSort(arr, pivot+1, high);
+	}
+}
+*/
+
+// test code 
+let arr = [96,14,1,1000,54,10,1,3];
+quickSort(arr, 0, arr.length-1);
+console.log(arr);

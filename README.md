@@ -1,6 +1,6 @@
 # ds-algo
 
-Implement **data** **structures** and **algorithms** by *javascript* and *python*.
+Implementing **data structures** and **algorithms** using *Javascript* and *Python*.
 
 ## Bag
 
@@ -148,3 +148,5 @@ Implement **data** **structures** and **algorithms** by *javascript* and *python
 * **Insertion** sort
 * **Bucket** sort
 * **Count** sort
+* **Merge** sort **recursive**
+* **Quick** sort
