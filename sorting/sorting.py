@@ -120,6 +120,23 @@ def merge_within_one(arr, low, mid, high):
 	for i in range(len(merged_arr)):
 		arr[i+low] = merged_arr[i]
 
+def merge_sort_i(arr):
+	'''
+	merge sort iterative version
+	'''
+	p = 2
+	while p <= len(arr):
+		i = 0
+		while i + p <= len(arr):
+			low = i
+			high = i + p - 1
+			mid = math.floor((low + high)/2)
+			merge_within_one(arr, low, mid, high)
+			i += p 
+		p *= 2
+	if p / 2 < len(arr):
+		merge_within_one(arr, 0, int(p/2), len(arr)-1)
+
 def merge_sort_r(arr, low, high):
 	'''
 	merge sort recursive version
@@ -164,7 +181,29 @@ def quick_sort(arr, low, high):
 		quick_sort(arr, pivot+1, high)
 """
 
+def radix_sort(arr):
+	'''
+	radix sort
+	'''
+	max_digits = len(str(max(arr)))
+	bucket = list()
+	for i in range(0, 10):
+		bucket.append(list())
+	for digit in range(max_digits):
+		for i in range(len(arr)):
+			num = arr[i]
+			place_value = math.pow(10, digit)
+			digit_value = math.floor(num[i] / place_value) % 10
+			bucket[digit_value].append(num)
+		sorted_arr = list()
+		for i in range(len(bucket)):
+			if len(bucket[i]) != 0:
+				sorted_arr.append(bucket[i].copy())
+		for i in range(0, 10):
+			bucket[i] = []
+		arr = sorted_arr
+	return sorted_arr
+
 # test code
-arr = [96,14,1,1000,54,10,1,3]
-quick_sort(arr, 0, len(arr)-1)
-print(arr)
+arr = [237,146,259,348,152,163,235,48,36,62]
+print(radix_sort(arr))

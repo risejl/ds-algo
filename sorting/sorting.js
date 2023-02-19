@@ -135,6 +135,22 @@ const mergeWithinOne = function (arr, low, mid, high) {
 	}
 } 
 
+// merge sort iterative version
+const mergeSortI = function (arr) {
+	let p = 2;
+	for (; p <= arr.length; p *= 2) {
+		for (let i = 0; i + p <= arr.length; i += p) {
+			let low = i;
+			let high = i + p - 1;
+			let mid = Math.floor((high + low) / 2);
+			mergeWithinOne(arr, low, mid, high);
+		}
+	}
+	if (p/2 < arr.length) {
+		mergeWithinOne(arr, 0, p/2, arr.length-1);
+	}
+}
+
 // merge sort recursive version
 const mergeSortR = function (arr, low, high) {
  	if (low < high) {
@@ -177,7 +193,32 @@ const quickSort = function (arr, low, high) {
 }
 */
 
+// radix sort
+const radixSort = function (arr) {
+  let maxDigits = Math.max(...arr).toString().length;
+  let bucket = [];
+  for (let i = 0; i <= 9; i += 1) {
+    bucket.push([]);
+  }
+  for (let digit = 0; digit < maxDigits; digit += 1) {
+    for (let i = 0; i < arr.length; i += 1) {
+      let num = arr[i];
+      let placeValue = Math.pow(10, digit);
+      let digitValue = Math.floor(num / placeValue) % 10;
+      bucket[digitValue].push(num);
+    }
+    let sortedArr = [];
+    for (let i = 0; i < bucket.length; i += 1) {
+      if (bucket[i].length !== 0) sortedArr.push(...bucket[i]);
+    }
+    for (let i = 0; i <= 9; i += 1) {
+      bucket[i] = [];
+    }
+    arr = sortedArr;
+  }
+  return arr;
+}
+
 // test code 
-let arr = [96,14,1,1000,54,10,1,3];
-quickSort(arr, 0, arr.length-1);
-console.log(arr);
+let arr = [237,146,259,348,152,163,235,48,36,62];
+console.log(radixSort(arr));

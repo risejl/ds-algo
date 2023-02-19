@@ -117,6 +117,7 @@ Implementing **data structures** and **algorithms** using *Javascript* and *Pyth
 * **Search** a node of a given value
 * **Non-recursive** version of **search** 
 * **Insert** a node to binary search tree 
+* **Delete** a node from binary search tree
 
 ## Heap
 
@@ -148,5 +149,8 @@ Implementing **data structures** and **algorithms** using *Javascript* and *Pyth
 * **Insertion** sort
 * **Bucket** sort
 * **Count** sort
+* **Radix** sort
 * **Merge** sort **recursive**
-* **Quick** sort
+* **Merge** sort **iterative**
+* **Quick** sort 
+
