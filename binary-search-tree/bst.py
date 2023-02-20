@@ -1,18 +1,20 @@
+from typing import Any
+
 class Node:
-	def __init__(self, value, left = None, right = None):
-		self.value = value
-		self.left = left
-		self.right = right 
+	def __init__(self, value: Any, left: 'Node'= None, right: 'Node'=None) -> None:
+		self.value: Any = value
+		self.left: 'Node' = left
+		self.right: 'Node' = right 
 
 
 class MyBinarySearchTree:
 	'''
 	implement binary search tree using python
 	'''
-	def __init__(self, root = None):
+	def __init__(self, root: 'Node'=None) -> None:
 		self.root = root
 
-	def inorder_traversal(self, root):
+	def inorder_traversal(self, root: 'Node') -> None: 
 		'''
 		bst sort
 		'''
@@ -22,7 +24,7 @@ class MyBinarySearchTree:
 		print(root.value)
 		self.inorder_traversal(root.right)
 
-	def search(self, target, root = None):
+	def search(self, target: Any, root: 'Node'=None) -> None:
 		'''
 		search a node of a given value
 		'''
@@ -36,7 +38,7 @@ class MyBinarySearchTree:
 		else:
 			self.search(target, root.left)
 
-	def search_n_r(self, target, root = None):
+	def search_n_r(self, target: Any, root: 'Node'=None) -> bool:
 		'''
 		non-recursive version of search
 		'''
@@ -49,7 +51,7 @@ class MyBinarySearchTree:
 				root = root.left
 		return False
 
-	def insert(self, value):
+	def insert(self, value: Any) -> None:
 		'''
 		insert a node to bst
 		'''
@@ -75,7 +77,7 @@ class MyBinarySearchTree:
 		else:
 			p.left = node
 
-	def delete(self, value):
+	def delete(self, value: Any) -> None:
 		'''
 		delete a node from bst
 		'''

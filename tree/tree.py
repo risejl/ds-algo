@@ -1,27 +1,29 @@
+from typing import Any, Optional
+
 class TreeNode:
     """
     implement tree node
     """
-    def __init__(self, value, left=None, right=None):
-        self.value = value
-        self.left = left
-        self.right = right
-        self.exitStackCount = 0
+    def __init__(self, value: Any, left: 'TreeNode'=None, right: 'TreeNode'=None) -> None:
+        self.value: 'TreeNode' = value
+        self.left: 'TreeNode' = left
+        self.right: 'TreeNode' = right
+        self.exitStackCount: int = 0
 
 class MyStack:
     '''
     stack for non-recursive version of traversal
     '''
-    def __init__(self):
-        self.stack = list()
+    def __init__(self) -> None:
+        self.stack: list = list()
 
-    def push(self, element):
+    def push(self, element: 'TreeNode') -> None:
         self.stack.append(element)
 
-    def pop(self):
+    def pop(self) -> 'TreeNode':
         return self.stack.pop()
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         if len(self.stack) == 0:
             return True
         else:
@@ -31,23 +33,23 @@ class MyQueue:
     '''
     queue for level-order traversal
     '''
-    def __init__(self):
-        self.queue = list()
+    def __init__(self) -> None:
+        self.queue: list = list()
 
-    def enqueue(self, element):
+    def enqueue(self, element: 'TreeNode') -> None:
         self.queue.append(element)
 
-    def dequeue(self):
+    def dequeue(self) -> 'TreeNode':
         if not self.is_empty():
             return self.queue.pop(0)
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         if len(self.queue) != 0:
             return False
         else:
             return True
 
-    def get_front(self):
+    def get_front(self) -> Optional['TreeNode']:
         if not self.is_empty():
             return self.queue[0]
         else:
@@ -57,10 +59,10 @@ class MyTree:
     """
     implement linkedlist-based tree
     """
-    def __init__(self, root=None):
-        self.root = root
+    def __init__(self, root: 'TreeNode'=None) -> None:
+        self.root: 'TreeNode' = root
 
-    def preorder_traversal(self, root=None):
+    def preorder_traversal(self, root: 'TreeNode'=None) -> None:
         '''
         preorder traversal recursive
         '''
@@ -70,7 +72,7 @@ class MyTree:
         self.preorder_traversal(root.left)
         self.preorder_traversal(root.right)
 
-    def preorder_traversal_nr(self, root=None):
+    def preorder_traversal_nr(self, root: 'TreeNode'=None) -> None:
         '''
         preorder traversal non-recursive
         '''
@@ -103,7 +105,7 @@ class MyTree:
                     else:
                         break
 
-    def inorder_traversal(self, root=None):
+    def inorder_traversal(self, root: 'TreeNode'=None) -> None:
         '''
         inorder traversal recursive
         '''
@@ -113,7 +115,7 @@ class MyTree:
         print(root.value)
         self.inorder_traversal(root.right)
 
-    def inorder_traversal_nr(self, root=None):
+    def inorder_traversal_nr(self, root: 'TreeNode'=None) -> None:
         '''
         preorder traversal non-recursive
         '''
@@ -142,7 +144,7 @@ class MyTree:
                     else:
                         stack.push(p)
 
-    def postorder_traversal(self, root=None):
+    def postorder_traversal(self, root: 'TreeNode'=None) -> None:
         '''
         postorder traversal recursive
         '''
@@ -152,7 +154,7 @@ class MyTree:
         self.postorder_traversal(root.right)
         print(root.value)
 
-    def postorder_traversal_nr(self, root=None):
+    def postorder_traversal_nr(self, root: 'TreeNode'=None) -> None:
         '''
         postorder traversal non-recursive
         '''
@@ -193,7 +195,7 @@ class MyTree:
                             else:
                                 stack.push(p)        
 
-    def levelorder_traversal(self, root=None):
+    def levelorder_traversal(self, root: 'TreeNode'=None) -> None:
         '''
         level order traversal
         '''
@@ -209,7 +211,7 @@ class MyTree:
             if node.right != None:
                 queue.enqueue(node.right)
 
-    def count(self, root=None):
+    def count(self root: 'TreeNode'=None) -> int:
         '''
         return the number of nodes
         '''
@@ -221,7 +223,7 @@ class MyTree:
             return left_num + right_num + 1
         return 0
 
-    def sum_value(self, root=None):
+    def sum_value(self, root: 'TreeNode'=None) -> Any:
         '''
         return the summation of nodes
         '''
@@ -233,7 +235,7 @@ class MyTree:
             return left_sum + right_sum + root.value
         return 0
 
-    def height(self, root=None):
+    def height(self, root: 'TreeNode'=None) -> int:
         '''
         return the height of tree
         '''
@@ -248,7 +250,7 @@ class MyTree:
                 return right_height + 1
         return 0
 
-    def leaf_num(self, root=None):
+    def leaf_num(self, root: 'TreeNode'=None) -> int:
         '''
         return the number of leaf nodes
         '''
@@ -263,7 +265,7 @@ class MyTree:
                 return left_leaf + right_leaf
         return 0
 
-    def children_num(self, root=None):
+    def children_num(self, root: 'TreeNode'=None) -> int:
         '''
         return the number of nodes which have children
         '''
@@ -278,7 +280,7 @@ class MyTree:
                 return left_children + right_children
         return 0
 
-    def two_children_num(self, root=None):
+    def two_children_num(self, root: 'TreeNode'=None) -> int:
         '''
         return the number of nodes which have two children
         '''
@@ -293,7 +295,7 @@ class MyTree:
                 return left_children + right_children
         return 0
 
-    def one_child_num(self, root=None):
+    def one_child_num(self, root: 'TreeNode'=None) -> int:
         '''
         return the number of nodes which have one child
         '''

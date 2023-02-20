@@ -22,19 +22,19 @@ class MyString {
 
   // convert string to lower case
   lower() {
-    if (this.isEmpty()) return false;
+    if (this.isEmpty()) return "";
     else return this.string.toLowerCase();
   }
 
   // convert string to upper case
   upper() {
-    if (this.isEmpty()) return false;
+    if (this.isEmpty()) return "";
     else return this.string.toUpperCase();
   }
 
   // whether a character in a string
   hasCh(ch) {
-    if (this.isEmpty()) return false;
+    if (this.isEmpty()) return "";
     else {
       for (let i = 0; i < this.string.length; i += 1) {
         if (this.string[i] === ch) return i;
