@@ -83,6 +83,32 @@ const bucketSort = function (arr) {
 	return sortedArr;
 }
 
+// radix sort
+const radixSort = function (arr) {
+  let maxDigits = Math.max(...arr).toString().length;
+  let bucket = [];
+  for (let i = 0; i <= 9; i += 1) {
+    bucket.push([]);
+  }
+  for (let digit = 0; digit < maxDigits; digit += 1) {
+    for (let i = 0; i < arr.length; i += 1) {
+      let num = arr[i];
+      let placeValue = Math.pow(10, digit);
+      let digitValue = Math.floor(num / placeValue) % 10;
+      bucket[digitValue].push(num);
+    }
+    let sortedArr = [];
+    for (let i = 0; i < bucket.length; i += 1) {
+      if (bucket[i].length !== 0) sortedArr.push(...bucket[i]);
+    }
+    for (let i = 0; i <= 9; i += 1) {
+      bucket[i] = [];
+    }
+    arr = sortedArr;
+  }
+  return arr;
+}
+
 // two way merge
 const merge = function (arr1, arr2) {
 	let mergedArr = [];
@@ -192,33 +218,3 @@ const quickSort = function (arr, low, high) {
 	}
 }
 */
-
-// radix sort
-const radixSort = function (arr) {
-  let maxDigits = Math.max(...arr).toString().length;
-  let bucket = [];
-  for (let i = 0; i <= 9; i += 1) {
-    bucket.push([]);
-  }
-  for (let digit = 0; digit < maxDigits; digit += 1) {
-    for (let i = 0; i < arr.length; i += 1) {
-      let num = arr[i];
-      let placeValue = Math.pow(10, digit);
-      let digitValue = Math.floor(num / placeValue) % 10;
-      bucket[digitValue].push(num);
-    }
-    let sortedArr = [];
-    for (let i = 0; i < bucket.length; i += 1) {
-      if (bucket[i].length !== 0) sortedArr.push(...bucket[i]);
-    }
-    for (let i = 0; i <= 9; i += 1) {
-      bucket[i] = [];
-    }
-    arr = sortedArr;
-  }
-  return arr;
-}
-
-// test code 
-let arr = [237,146,259,348,152,163,235,48,36,62];
-console.log(radixSort(arr));

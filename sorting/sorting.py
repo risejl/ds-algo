@@ -73,6 +73,27 @@ def bucket_sort(arr):
 			sorted_arr.append(bucket[i].copy())
 	return sorted_arr
 
+def radix_sort(arr):
+    '''
+    radix sort
+    '''
+    max_digits = len(str(max(arr)))
+    bucket = [[] for _ in range(10)]
+    for digit in range(max_digits):
+        for i in range(len(arr)):
+            num = arr[i]
+            place_value = int(math.pow(10, digit))
+            digit_value = math.floor(num / place_value) % 10
+            bucket[digit_value].append(num)
+        sorted_arr = []
+        for i in range(len(bucket)):
+            if len(bucket[i]) != 0:
+                sorted_arr.extend(bucket[i])
+            bucket[i] = []
+        arr = sorted_arr
+    return arr
+
+
 def two_way_merge(arr1, arr2):
 	'''
 	two way merging
@@ -180,30 +201,3 @@ def quick_sort(arr, low, high):
 		quick_sort(arr, low, pivot-1)
 		quick_sort(arr, pivot+1, high)
 """
-
-def radix_sort(arr):
-	'''
-	radix sort
-	'''
-	max_digits = len(str(max(arr)))
-	bucket = list()
-	for i in range(0, 10):
-		bucket.append(list())
-	for digit in range(max_digits):
-		for i in range(len(arr)):
-			num = arr[i]
-			place_value = math.pow(10, digit)
-			digit_value = math.floor(num[i] / place_value) % 10
-			bucket[digit_value].append(num)
-		sorted_arr = list()
-		for i in range(len(bucket)):
-			if len(bucket[i]) != 0:
-				sorted_arr.append(bucket[i].copy())
-		for i in range(0, 10):
-			bucket[i] = []
-		arr = sorted_arr
-	return sorted_arr
-
-# test code
-arr = [237,146,259,348,152,163,235,48,36,62]
-print(radix_sort(arr))
