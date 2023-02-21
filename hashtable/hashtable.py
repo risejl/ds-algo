@@ -1,32 +1,34 @@
+from typing import Any
+
 class Node:
-	def __init__(self, value, next = None):
-		self.value = value 
-		self.next = next 
+	def __init__(self, value: Any, next: 'Node'= None) -> None:
+		self.value: Any = value 
+		self.next: 'Node' = next 
 
 class MyLinkedList:
-	def __init__(self, head = None):
-		self.head = head 
+	def __init__(self, head: 'Node'= None) -> None:
+		self.head: 'Node' = head 
 
 class Data:
-	def __init__(self, value, flag, key):
-		self.value = value 
-		self.flag = flag
-		self.key = key
+	def __init__(self, value: Any, flag: bool, key: Any) -> None:
+		self.value: Any = value 
+		self.flag: bool = flag
+		self.key: Any = key
 
 class MyHashTable:
-	def __init__(self, size):
+	def __init__(self, size: int) -> None:
 		self.hashtable = list()
 		for i in range(size):
 			self.hashtable.append(None)
 
-	def hash(self, value):
+	def hash(self, value: Any) -> Any:
 		'''
 		hash function
 		'''
 		key = value % len(self.hashtable)
 		return key
 
-	def double_hash(self, value, prime_number):
+	def double_hash(self, value: Any, prime_number: int) -> Any:
 		'''
 		double hashing
 		'''
@@ -35,7 +37,7 @@ class MyHashTable:
 		key = first_key + second_key
 		return key
 
-	def chaining_insert(self, value):
+	def chaining_insert(self, value: Any) -> None:
 		'''
 		insert a element by chaining
 		'''
@@ -52,7 +54,7 @@ class MyHashTable:
 				p = p.next 
 			p.next = node
 
-	def chaining_search(self, value):
+	def chaining_search(self, value: Any) -> bool:
 		'''
 		searching a element on chains
 		'''
@@ -68,7 +70,7 @@ class MyHashTable:
 					p = p.next
 			return False
 
-	def chaining_delete(self,value):
+	def chaining_delete(self, value: Any) -> None:
 		'''
 		delete a element on chains
 		'''
@@ -90,7 +92,7 @@ class MyHashTable:
 					else:
 						p = p.next 
 
-	def linear_probling_insert(self, value):
+	def linear_probling_insert(self, value: Any) -> bool:
 		'''
 		insert a element by linear probing
 		'''
@@ -111,7 +113,7 @@ class MyHashTable:
 					return True
 			return False
 
-	def linear_probling_search(self, value):
+	def linear_probling_search(self, value: Any) -> bool:
 		'''
 		searching a element by linear probing
 		'''
@@ -134,7 +136,7 @@ class MyHashTable:
 						return True
 				return False
 
-	def linear_probling_delete(self, value):
+	def linear_probling_delete(self, value: Any) -> bool:
 		'''
 		delete a element by linear probing
 		'''
@@ -160,7 +162,7 @@ class MyHashTable:
 						return True
 				return False
 
-	def quadratic_probling_insert(self, value):
+	def quadratic_probling_insert(self, value: Any) -> bool:
 		'''
 		insert a element by quadratic probing
 		'''
@@ -181,7 +183,7 @@ class MyHashTable:
 					return True
 			return False
 
-	def quadratic_probling_search(self, value):
+	def quadratic_probling_search(self, value: Any) -> bool:
 		'''
 		searching a element by quadratic probing
 		'''
@@ -204,7 +206,7 @@ class MyHashTable:
 						return True
 				return False
 
-	def quadratic_probling_delete(self, value):
+	def quadratic_probling_delete(self, value: Any) -> bool:
 		'''
 		delete a element by quadratic probing
 		'''

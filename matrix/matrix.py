@@ -1,14 +1,16 @@
+from typing import Any
+
 class MyMatrix:
     '''
     implement matrix by python
     '''
 
-    def __init__(self, row):
-        self.matrix = list()
+    def __init__(self, row: int) -> None:
+        self.matrix: list = list()
         for i in range(row):
             self.matrix.append([])
 
-    def add(self, row, value):
+    def add(self, row: int, value: Any) -> bool:
         '''
         add an element to a given row
         '''
@@ -18,7 +20,7 @@ class MyMatrix:
         else:
             self.matrix[row].append(value)
 
-    def modify(self):
+    def modify(self) -> None:
         '''
         modify to a matrix
         '''
@@ -30,7 +32,7 @@ class MyMatrix:
             for j in range(maxRowLength - len(self.matrix[i])):
                 self.matrix[i].append(0);
 
-    def shape(self):
+    def shape(self) -> list:
         '''
         matrix's shape
         '''
@@ -38,7 +40,7 @@ class MyMatrix:
         column = len(self.matrix[0])
         return [row, column]
     
-    def print(self):
+    def print(self) -> None:
         '''
         print all elements
         '''
@@ -46,7 +48,7 @@ class MyMatrix:
             for j in range(len(self.matrix[i])):
                 print(self.matrix[i][j])
     
-    def print_by_row(self):
+    def print_by_row(self) -> None:
         '''
         print elements by row
         '''
@@ -55,7 +57,7 @@ class MyMatrix:
             for j in range(len(self.matrix[i])):
                 print(self.matrix[i][j])
 
-    def print_by_column(self):
+    def print_by_column(self) -> None:
         '''
         print elements by column
         '''
@@ -64,7 +66,7 @@ class MyMatrix:
             for j in range(len(self.matrix)):
                 print(self.matrix[j][i])
 
-    def transpose(self):
+    def transpose(self) -> None:
         '''
         transpose a matrix
         '''

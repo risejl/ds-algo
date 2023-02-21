@@ -1,5 +1,5 @@
-"""
-def linear_search(li, target):
+
+def linear_search(li: list, target: Any) -> int:
 	'''
 	implement linear search by python
 	'''
@@ -7,10 +7,9 @@ def linear_search(li, target):
 		if li[i] == target:
 			return i
 	return -1
-"""
 
-"""
-def binary_search(li, target):
+
+def binary_search(li: list, target: Any) -> int:
 	'''
 	implement binary search by python
 	'''
@@ -25,15 +24,14 @@ def binary_search(li, target):
 		else:
 			low = mid + 1
 	return -1
-"""
 
-def binary_search_r(li, target):
+def binary_search_r(li: list, target: Any) -> int:
     '''
     implement binary search recursive version
     '''
     return binary_search_internally(li, 0, len(li) - 1, target)
 
-def binary_search_internally(li, low, high, target):
+def binary_search_internally(li: list, low: int, high: int, target: Any) -> int:
     mid = int(low + (high - low) / 2)
     if low > high:
         return -1
@@ -43,4 +41,3 @@ def binary_search_internally(li, low, high, target):
         return binary_search_internally(li, low, high - 1, target)
     else:
         return binary_search_internally(li, mid + 1, high, target)
-

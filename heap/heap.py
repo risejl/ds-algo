@@ -1,11 +1,13 @@
+from typing import Any
+
 class MyHeap:
 	'''
 	implement heap using python
 	'''
-	def __init__(self):
-		self.heap = list()
+	def __init__(self) -> None:
+		self.heap: list = list()
 
-	def insert(self, value):
+	def insert(self, value: Any) -> None:
 		'''
 		insert a node to a heap
 		'''
@@ -26,7 +28,7 @@ class MyHeap:
 			else:
 				parent_index = index / 2
 
-	def delete_root(self):
+	def delete_root(self) -> Any:
 		'''
 		delete root node from a heap
 		'''
@@ -59,14 +61,14 @@ class MyHeap:
 				index = 2 * index + 1
 		return value
 
-	def build(self, arr):
+	def build(self, arr: list) -> None:
 		'''
 		build a heap
 		'''
 		for i in range(len(arr)):
 			self.insert(arr[i])
 
-	def sort(self):
+	def sort(self) -> list:
 		'''
 		heap sort
 		'''

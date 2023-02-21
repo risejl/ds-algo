@@ -1,19 +1,21 @@
+from typing import Any
+
 class Node:
     '''
     implement linkedList node
     '''
-    def __init__(self, value, next=None):
-        self.value = value
-        self.next = next
+    def __init__(self, value: Any, next: 'Node'=None) -> None:
+        self.value: Any = value
+        self.next: 'Node' = next
 
 class MyLinkedList:
     '''
     implement linkedList
     '''
-    def __init__(self, head=None):
-        self.head = None
+    def __init__(self, head: 'Node'=None) -> None:
+        self.head: 'Node' = None
 
-    def create_list_by_array(self, array):
+    def create_list_by_array(self, array: list) -> 'Node':
         '''
         create a linkedlist by array elements
         '''
@@ -29,7 +31,7 @@ class MyLinkedList:
             p = p.next 
         return self.head
 
-    def create_node_by_head(self, value, next=None):
+    def create_node_by_head(self, value: Any, next: 'Node'=None) -> None:
         '''
         insert a node to the head of linkedlist
         '''
@@ -37,7 +39,7 @@ class MyLinkedList:
         node.next = self.head
         self.head = node
 
-    def create_node_by_tail(self, value, next=None):
+    def create_node_by_tail(self, value: Any, next: 'Node'=None) -> None:
         '''
         insert a node to the end of linkedlist
         '''
@@ -47,7 +49,7 @@ class MyLinkedList:
             p = p.next
         p.next = node
 
-    def print(self):
+    def print(self) -> None:
         '''
         print all nodes
         '''
@@ -56,17 +58,17 @@ class MyLinkedList:
             print(p)
             p = p.next
 
-    def print_r(self, p=None):
+    def print_r(self, p: 'Node'=None) -> None:
         if p != None:
             print(p)
             self.print_r(p.next)
 
-    def print_r_r(self, p=None):
+    def print_r_r(self, p: 'Node'=None) -> None:
         if p != None:
             self.print_r_r(p.next)
             print(p)
 
-    def count(self):
+    def count(self) -> int:
         '''
         return the number of nodes
         '''
@@ -77,7 +79,7 @@ class MyLinkedList:
             p = p.next
         return counter
 
-    def add(self):
+    def add(self) -> Any:
         '''
         return the summation of all nodes
         '''
@@ -88,7 +90,7 @@ class MyLinkedList:
             p = p.next
         return summa
 
-    def get_max(self):
+    def get_max(self) -> Any:
         '''
         return the maximum value of nodes
         '''
@@ -100,7 +102,7 @@ class MyLinkedList:
             p = p.next
         return maxValue
 
-    def get_min(self):
+    def get_min(self) -> Any:
         '''
         return the minimum value of nodes
         '''
@@ -112,7 +114,7 @@ class MyLinkedList:
             p = p.next
         return minValue
 
-    def search(self, value):
+    def search(self, value: Any) -> int:
         '''
         check whether a node is in the linkedlist
         '''
@@ -125,7 +127,7 @@ class MyLinkedList:
             else:
                 return index
 
-    def delete_node(self,index):
+    def delete_node(self, index: int) -> None:
         '''
         delete a node at a given index
         '''
@@ -139,7 +141,7 @@ class MyLinkedList:
                 p.next = p.next.next
                 return
 
-    def remove_duplicate(self):
+    def remove_duplicate(self) -> None:
         '''
         remove duplicate nodes
         '''
@@ -153,7 +155,7 @@ class MyLinkedList:
                 p = p.next
                 pre = pre.next
 
-    def is_loop(self):
+    def is_loop(self) -> bool:
         '''
         is linkedlist have a loop
         '''
@@ -173,7 +175,7 @@ class MyLinkedList:
             if fast == slow:
                 return True
 
-    def reverse(self):
+    def reverse(self) -> None:
         '''
         reverse a linkedlist
         '''
@@ -192,7 +194,7 @@ class MyLinkedList:
         p.next = q  
         self.head = r
 
-    def reverse_r(self, p=None, q=None):
+    def reverse_r(self, p: 'Node'=None, q: 'Node'=None) -> None:
         '''
         reverse a linkedlist recursively
         '''

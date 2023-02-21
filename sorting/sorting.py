@@ -1,7 +1,6 @@
 import math
 
-"""
-def bubble_sort(arr):
+def bubble_sort(arr: list) -> None:
 	'''
 	bubble sort
 	'''
@@ -12,7 +11,7 @@ def bubble_sort(arr):
 				arr[i] = arr[j]
 				arr[j] = temp
 
-def selection_sort(arr):
+def selection_sort(arr: list) -> None:
 	'''
 	selection sort
 	'''
@@ -25,7 +24,7 @@ def selection_sort(arr):
 		arr[i] = arr[min]
 		arr[min] = temp
 
-def insertion_sort(arr):
+def insertion_sort(arr: list) -> None:
 	'''
 	insertion sort
 	'''
@@ -38,7 +37,7 @@ def insertion_sort(arr):
 				min_index = j
 		arr[min_index] = min_value
 
-def count_sort(arr):
+def count_sort(arr: list) -> list:
 	'''
 	count sort
 	'''
@@ -56,7 +55,7 @@ def count_sort(arr):
 			i += 1
 	return sorted_arr
 
-def bucket_sort(arr):
+def bucket_sort(arr: list) -> list:
 	'''
 	bucket sort
 	'''
@@ -73,7 +72,7 @@ def bucket_sort(arr):
 			sorted_arr.append(bucket[i].copy())
 	return sorted_arr
 
-def radix_sort(arr):
+def radix_sort(arr: list) -> list:
     '''
     radix sort
     '''
@@ -94,7 +93,7 @@ def radix_sort(arr):
     return arr
 
 
-def two_way_merge(arr1, arr2):
+def two_way_merge(arr1: list, arr2: list) -> list:
 	'''
 	two way merging
 	'''
@@ -118,7 +117,7 @@ def two_way_merge(arr1, arr2):
 		j += 1
 	return merged_arr
 
-def merge_within_one(arr, low, mid, high):
+def merge_within_one(arr: list, low: int, mid: int, high: int) -> None:
 	'''
 	merging within one array
 	'''
@@ -141,7 +140,7 @@ def merge_within_one(arr, low, mid, high):
 	for i in range(len(merged_arr)):
 		arr[i+low] = merged_arr[i]
 
-def merge_sort_i(arr):
+def merge_sort_i(arr: list) -> None:
 	'''
 	merge sort iterative version
 	'''
@@ -158,7 +157,7 @@ def merge_sort_i(arr):
 	if p / 2 < len(arr):
 		merge_within_one(arr, 0, int(p/2), len(arr)-1)
 
-def merge_sort_r(arr, low, high):
+def merge_sort_r(arr: list, low: int, high: int) -> None:
 	'''
 	merge sort recursive version
 	'''
@@ -169,7 +168,7 @@ def merge_sort_r(arr, low, high):
 		merge_within_one(arr, low, mid, high)
 
 
-def partition(arr, low, high):
+def partition(arr: list, low: int, high: int) -> int:
 	'''
 	sorting the pivot to the right position
 	'''
@@ -192,7 +191,7 @@ def partition(arr, low, high):
 	arr[j] = temp
 	return j
 
-def quick_sort(arr, low, high):
+def quick_sort(arr: list, low: int, high: int) -> None:
 	'''
 	quick sort
 	'''
@@ -200,4 +199,3 @@ def quick_sort(arr, low, high):
 		pivot = partition(arr, low, high)
 		quick_sort(arr, low, pivot-1)
 		quick_sort(arr, pivot+1, high)
-"""

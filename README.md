@@ -1,6 +1,6 @@
 # ds-algo
 
-Implementing **data structures** and **algorithms** using *Javascript* and *Python*.
+Implementing **data structures** and **algorithms** using *JavaScript* and *Python*.
 
 ## Bag
 
