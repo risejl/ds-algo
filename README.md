@@ -140,8 +140,6 @@ Implementing **data structures** and **algorithms** using *JavaScript* and *Pyth
 * Quadratic **probing** search
 * Quadratic probing **delete**
 
-## Graph
-
 ## Sorting
 
 * **Bubble** sort
@@ -153,4 +151,9 @@ Implementing **data structures** and **algorithms** using *JavaScript* and *Pyth
 * **Merge** sort **recursive**
 * **Merge** sort **iterative**
 * **Quick** sort 
+
+## Graph
+
+* Adjacency **matrix**
+* Adjacency **list**
 

@@ -65,49 +65,53 @@ class Adjacencylist {
 	}
 }
 
-class MyGraph {
-	constructor(vertices) {
-		this.vertices = [];
-		vertices.map((item) => {
-			const node = new Node(item, 0);
-			const adjList = new Adjacencylist(node);
-			this.vertices.push(adjList);
-		});
-	}
-
-	depthFirstSearch(source) {
-		let p = source;
-		let stack = new MyStack();
-		let visited = [];
-		while (visited.length !== this.vertices.length) {
-			console.log(p.head.vertex);
-			visited.push(p.head.vertex);
-			if (p.head.next !== null) {
-				stack.push(p);
-				p = p.head.next;
-			} else {
-				p = stack.pop();
-				while (p.head.next !== null) {
-					if (visited.indexOf(p.head.next.vertex) === -1) {
-						p = p.head.next;
-						break;
-					} else p = p.head.next;
-				}
+class AdjacencyMatrix {
+	constructor(vertices_len, isDirected = false) {
+		this.isDirected = isDirected;
+		this.graph = [];
+		for (let i = 0; i < vertices_len; i += 1) {
+			let outer = [];
+			for (let j = 0; j < vertices_len; j += 1) {
+				outer.push(null);
 			}
+			this.graph.push(outer)
 		}
 	}
 
-	breadthFirstSearch(source) {
+	addEdge(start, end, weight = 0) {
+		if (this.isDirected === true) this.graph[start][end] = weight;
+		else if (this.isDirected === false) {
+			this.graph[start][end] = weight;
+			this.graph[end][start] = weight;
+		}
+	}
+}
 
+class MyGraph {
+	constructor(impType, vertices) {
+		if (impType === 'linkedlist') {
+			this.vertices = [];
+			vertices.map((item) => {
+				const node = new Node(item, 0);
+				const adjList = new Adjacencylist(node);
+				this.vertices.push(adjList);
+			});
+		} else if (impType === 'matrix') this.graph = new AdjacencyMatrix(vertices.length, true);
 	}
 }
 
 // test code
 const vertices = [1,2,3,4];
-let graph = new MyGraph(vertices);
+/*
+let graph = new MyGraph('linkedlist', vertices);
 graph.vertices[0].addEdge(2);
 graph.vertices[0].addEdge(4);
 graph.vertices[1].addEdge(3);
 graph.vertices[2].addEdge(1);
 graph.vertices[3].addEdge(4);
-graph.depthFirstSearch(graph.vertices[0]);
+console.log(graph)
+*/
+let graph = new MyGraph('matrix', vertices);
+console.log(graph.graph);
+graph.graph.addEdge(1, 2, 2);
+console.log(graph.graph);
