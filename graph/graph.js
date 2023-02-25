@@ -98,20 +98,69 @@ class MyGraph {
 			});
 		} else if (impType === 'matrix') this.graph = new AdjacencyMatrix(vertices.length, true);
 	}
+
+	// breadth first search
+	breadthFirstSearch(vertex) {
+		let visited = [];
+		let queue = new MyQueue();
+		queue.enqueue(vertex);
+		let p = queue.queue[0];
+		while (queue.queue.length !== 0) {
+			while (p.next !== null) {
+				let isQueueHave = false;
+				let isVisitedHave = false;
+				for (let i = 0; i < queue.queue.length; i += 1) {
+					if (queue.queue[i].vertex === p.next.vertex) isQueueHave = true;
+				}
+				for (let i = 0; i < visited.length; i += 1) {
+					if (visited[i].vertex === p.next.vertex) isVisitedHave = true;
+				}
+				if (!isVisitedHave && !isQueueHave) {
+					queue.enqueue(p.next);
+					p = p.next;
+				} else p = p.next;
+			}
+			let isVisitedHave = false;
+			for (let i = 0; i < visited.length; i += 1) {
+				if (visited[i].vertex === queue.queue[0].vertex) isVisitedHave = true;
+			}
+			if (!isVisitedHave)	{
+				visited.push(queue.dequeue());
+				if (queue.queue.length !== 0) p = graph.vertices[queue.queue[0].vertex].head;
+			}
+		}
+		visited.map((item) => console.log(item.vertex));
+	}
 }
 
 // test code
-const vertices = [1,2,3,4];
-/*
+const vertices = [0,1,2,3,4,5,6,7,8,9,10];
 let graph = new MyGraph('linkedlist', vertices);
-graph.vertices[0].addEdge(2);
-graph.vertices[0].addEdge(4);
-graph.vertices[1].addEdge(3);
+graph.vertices[1].addEdge(4);
+graph.vertices[1].addEdge(2);
 graph.vertices[2].addEdge(1);
+graph.vertices[2].addEdge(3);
+graph.vertices[2].addEdge(5);
+graph.vertices[2].addEdge(7);
+graph.vertices[2].addEdge(8);
+graph.vertices[3].addEdge(2);
 graph.vertices[3].addEdge(4);
-console.log(graph)
-*/
-let graph = new MyGraph('matrix', vertices);
-console.log(graph.graph);
-graph.graph.addEdge(1, 2, 2);
-console.log(graph.graph);
+graph.vertices[3].addEdge(9);
+graph.vertices[3].addEdge(10);
+graph.vertices[4].addEdge(1);
+graph.vertices[4].addEdge(3);
+graph.vertices[5].addEdge(2);
+graph.vertices[5].addEdge(6);
+graph.vertices[5].addEdge(8);
+graph.vertices[5].addEdge(7);
+graph.vertices[6].addEdge(5);
+graph.vertices[6].addEdge(5);
+graph.vertices[7].addEdge(5);
+graph.vertices[7].addEdge(2);
+graph.vertices[7].addEdge(8);
+graph.vertices[8].addEdge(2);
+graph.vertices[8].addEdge(5);
+graph.vertices[8].addEdge(7);
+graph.vertices[9].addEdge(3);
+graph.vertices[10].addEdge(3);
+graph.depthFirstSearch(graph.vertices[1].head);
