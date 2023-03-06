@@ -131,6 +131,11 @@ class MyGraph {
 		}
 		visited.map((item) => console.log(item.vertex));
 	}
+
+	// depth first search
+	depthFirstSearch(vertex) {
+		
+	}
 }
 
 // test code

@@ -199,3 +199,16 @@ def quick_sort(arr: list, low: int, high: int) -> None:
 		pivot = partition(arr, low, high)
 		quick_sort(arr, low, pivot-1)
 		quick_sort(arr, pivot+1, high)
+
+def quick_sort_r(arr: list) -> int:
+    '''
+    quick sort recursively
+    '''
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    low = [x for x in arr if x < pivot]
+    mid = [x for x in arr if x == pivot]
+    high = [x for x in arr if x > pivot]
+    return quick_sort_r(low) + mid + quick_sort_r(high)
+
